@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   MEDIXIS DESIGN TOKENS — the single source of truth.
+   Colors, type, spacing, radius and motion live here. JS motion values
+   (src/lib/motion.ts) mirror the --ease / --dur-* tokens below.
+   ========================================================================== */
+@theme {
+  /* Color — neutral system + ONE accent (deep clinical teal) */
+  --color-ink: #0b0d10;          /* headings, dark chapters */
+  --color-body: #3c4148;         /* body text — 10.4:1 on white */
+  --color-muted: #5f6670;        /* secondary text — 5.9:1 on white */
+  --color-line: #e5e7eb;
+  --color-surface: #ffffff;
+  --color-mist: #f5f5f7;         /* alternate chapter background */
+  --color-accent: #0a6e6a;       /* 6.1:1 on white — links, CTAs, key figures */
+  --color-accent-strong: #08524f;/* hover */
+  --color-accent-soft: #e6f2f1;  /* tinted backgrounds */
+  --color-accent-on-dark: #6fd6cf; /* accent used on ink — 11:1 */
+  --color-on-dark: #f5f5f7;
+  --color-on-dark-muted: #a1a8b3; /* 8:1 on ink */
+
+  /* Type — Inter, two weights per section (400 / 600) */
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-display: clamp(3rem, 8vw, 8rem);
+  --text-h1: clamp(2.5rem, 5vw, 5rem);
+  --text-h2: clamp(2rem, 3.5vw, 3.5rem);
+  --text-h3: 1.5rem;
+  --text-lead: clamp(1.125rem, 1.4vw, 1.375rem);
+  --text-body: 1.125rem;
+  --text-small: 0.875rem;
+  --tracking-display: -0.035em;
+  --tracking-heading: -0.025em;
+
+  /* Spacing — 4px base; chapters breathe */
+  --spacing: 0.25rem;
+  --spacing-chapter: clamp(6rem, 14vw, 12.5rem);
+  --container-content: 75rem; /* 1200px */
+
+  /* Radius */
+  --radius-card: 0.5rem;
+  --radius-media: 1rem;
+  --radius-panel: 1.75rem;
+
+  /* Motion — premium, ease-out, no bounce */
+  --ease-out-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 400ms;
+  --dur-base: 600ms;
+  --dur-slow: 800ms;
+}
+
+/* ---------- Base (layered so utilities always win) ---------- */
+@layer base {
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-surface);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+h1, h2, h3, h4 { color: var(--color-ink); font-weight: 600; text-wrap: balance; }
+p { text-wrap: pretty; }
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.on-dark :focus-visible { outline-color: var(--color-accent-on-dark); }
+
+::selection { background: var(--color-accent-soft); color: var(--color-ink); }
+}
+
+/* ---------- Utilities ---------- */
+@utility container-content {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+}
+@utility chapter {
+  padding-block: var(--spacing-chapter);
+}
+@utility text-display {
+  font-size: var(--text-display);
+  line-height: 0.98;
+  letter-spacing: var(--tracking-display);
+}
+@utility text-h1 {
+  font-size: var(--text-h1);
+  line-height: 1.02;
+  letter-spacing: var(--tracking-display);
+}
+@utility text-h2 {
+  font-size: var(--text-h2);
+  line-height: 1.08;
+  letter-spacing: var(--tracking-heading);
+}
+@utility text-lead {
+  font-size: var(--text-lead);
+  line-height: 1.55;
+}
+@utility eyebrow {
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+}
+
+/* Placeholder content that must be supplied/confirmed before launch */
+.todo {
+  background: repeating-linear-gradient(-45deg, transparent 0 6px, rgb(10 110 106 / 0.06) 6px 12px);
+  outline: 1px dashed rgb(10 110 106 / 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+  padding-inline: 0.2em;
+}
+
+/* Hero entrance — pure CSS so it paints before JS hydrates (protects LCP) */
+@keyframes rise { from { opacity: 0.01; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise var(--dur-slow) var(--ease-out-premium) both; }
+
+/* Skip link */
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  background: var(--color-ink); color: #fff; padding: 0.75rem 1rem; border-radius: 0.5rem;
+  transition: top var(--dur-fast) var(--ease-out-premium);
+}
+.skip-link:focus { top: 1rem; }
+
+/* Reduced motion: kill non-essential animation globally */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
