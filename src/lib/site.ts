@@ -153,3 +153,65 @@ export const story = [
   "But our vision has always extended beyond business. At the heart of Medixis is a commitment to helping people and making quality healthcare more accessible. We aspire to turn that commitment into meaningful action, including through a future charitable initiative focused on providing medical equipment to underserved communities, particularly in regions of Africa where access to essential healthcare remains limited.",
   "For us, improving healthcare is not just about connecting suppliers and providers; it is about making a difference in people\u2019s lives.",
 ];
+
+// Where Medixis works: shown when a region on the About-page globe is clicked.
+// Figures supplied by Medixis (Nov 2026). Add sources for each figure before launch.
+export type RegionId = "denmark" | "eastern-europe" | "morocco" | "nigeria";
+export const regions: {
+  id: RegionId;
+  name: string;
+  detail: string;
+  center: [number, number]; // lon, lat the camera flies to
+  radius: number;           // angular radius in degrees that should fill the view
+  countryIds: string[];     // ISO 3166 numeric codes, as used by world-atlas
+  text: string[];
+}[] = [
+  {
+    id: "denmark",
+    name: "Denmark",
+    detail: "Headquarters, Aarhus",
+    center: [10.4, 56.1],
+    radius: 3.4,
+    countryIds: ["208"],
+    text: [
+      "Denmark’s private hospital sector is small but growing: the hospitals industry has grown at a CAGR of 12.2% between 2021 and 2026, as private providers take on patients the public system can’t treat quickly.",
+      "There’s less need for help with sourcing than in emerging markets, but Denmark is where our relationships are strongest. We’ve been operating there since April 2026.",
+    ],
+  },
+  {
+    id: "eastern-europe",
+    name: "Eastern Europe",
+    detail: "Poland, Romania, Bulgaria, Latvia",
+    center: [23.8, 50.2],
+    radius: 10.5,
+    countryIds: ["616", "642", "100", "428"],
+    text: [
+      "More and more people in the region are paying for private care. Poland’s private healthcare market was close to PLN 90 billion in 2024 and growing by double digits, and demand for private care in Romania has kept rising with a growing, wealthier middle class.",
+      "That means a large pool of private clinics we could sell to, and our Romanian supplier gives us a strong position on the supply side. We started looking at the region in November 2026.",
+    ],
+  },
+  {
+    id: "morocco",
+    name: "Morocco",
+    detail: "North Africa",
+    center: [-6.6, 31.6],
+    radius: 6.5,
+    countryIds: ["504"],
+    text: [
+      "Morocco has more than 400 private clinics, mostly in the Casablanca-Settat and Rabat-Salé-Kénitra regions, and the private sector is growing alongside government investment in healthcare.",
+      "It’s our closest market to a first deal, and we’re working with a Chinese supplier that has a local distributor. One caveat: importing or selling used or refurbished medical equipment is now illegal there, so the refurbished side of the business won’t work in Morocco. We’ve been looking into Morocco since June 2026.",
+    ],
+  },
+  {
+    id: "nigeria",
+    name: "Nigeria",
+    detail: "West Africa",
+    center: [8.2, 9.3],
+    radius: 6.8,
+    countryIds: ["566"],
+    text: [
+      "Nigeria has the largest medical device market in West Africa. It’s projected to grow from US$414.8 million in 2025 to US$632.48 million by 2030, and it relies mostly on imported devices, with China holding the largest share.",
+      "Private hospitals and specialist clinics are Medixis’s main opening, because they often buy newer devices faster than public hospitals do. We’ve been looking into Nigeria since September 2026, with a partner on the ground covering the region.",
+    ],
+  },
+];
