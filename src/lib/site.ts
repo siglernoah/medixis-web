@@ -13,6 +13,7 @@ export const site = {
   description:
     "Medixis finds and vets medical equipment quotes for private clinics and hospitals. It's free for clinics: suppliers pay us a commission, not you.",
   email: "Jonas@medixisgroup.com",
+  footerEmail: "contact@medixisgroup.com", // shown in the footer; forms still go to `email`
   phone: "+45 93 90 36 60",
   phoneHref: "+4593903660",
   city: "Aarhus",
