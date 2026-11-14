@@ -41,6 +41,7 @@ const orgJsonLd = {
   areaServed: "Europe",
   logo: `${site.url}/icon.svg`,
   founder: { "@type": "Person", name: "Jonas Jorgensen", jobTitle: "Founder & CEO" },
+  sameAs: site.social.map((s) => s.url),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

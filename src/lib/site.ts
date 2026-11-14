@@ -19,6 +19,10 @@ export const site = {
   country: "Denmark",
   countryCode: "DK",
   clientLogin: "https://medixisgroup.com/partner-portal",
+  social: [
+    { name: "LinkedIn", url: "https://www.linkedin.com/company/medixis/posts/" },
+    { name: "Instagram", url: "https://www.instagram.com/medixisgroup/" },
+  ],
 };
 
 export const nav = [

@@ -23,6 +23,23 @@ const cols = [
   },
 ];
 
+function LinkedInIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11.25H3V9.75Zm6.5 0h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.6 4.77 6v5.7h-4v-5.05c0-1.2-.02-2.75-1.7-2.75-1.7 0-1.95 1.3-1.95 2.66V21H9.5V9.75Z" />
+    </svg>
+  );
+}
+function InstagramIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -31,6 +48,21 @@ export default function Footer() {
         <div>
           <Logo dark />
           <p className="mt-4 max-w-xs text-small text-on-dark-muted">{site.description}</p>
+          <ul className="mt-6 flex gap-3" aria-label="Medixis on social media">
+            {site.social.map((s) => (
+              <li key={s.name}>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Medixis on ${s.name} (opens in a new tab)`}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors duration-[var(--dur-fast)] hover:border-white hover:bg-white hover:text-ink"
+                >
+                  {s.name === "LinkedIn" ? <LinkedInIcon /> : <InstagramIcon />}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
         {cols.map((c) => (
           <nav key={c.title} aria-label={c.title}>
