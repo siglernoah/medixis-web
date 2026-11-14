@@ -88,12 +88,47 @@ export const vision = {
   statement: "To be the trusted procurement partner for healthcare facilities in every market we serve.",
   why: "Growing internationally while staying focused on healthcare professionals and the patients who depend on them.",
 };
-export const values = [
-  { title: "Trust", body: "Long-term relationships with clients, suppliers and partners." },
-  { title: "Transparency", body: "Itemised quotes, clear terms and honest timelines." },
-  { title: "Accountability", body: "One point of contact who owns your request end to end." },
-  { title: "Genuine care", body: "For the professionals we serve and the patients they treat." },
-];
+// "What we stand for": Medixis's own wording (Nov 2026). Text in [square brackets] is still to be confirmed.
+export const standFor = {
+  intro: "Buying medical equipment shouldn’t depend on who you happen to know, or how many weeks you can spend chasing quotes. Medixis exists to give private clinics a fair, honest way to find the right equipment, and to give good suppliers a straight path to the clinics that need them.",
+  holdUs: "These are the principles we work by. Hold us to them.",
+  principles: [
+    {
+      title: "Your clinic’s needs come first",
+      body: "We don’t start with a catalogue and look for someone to sell it to. We start with what your clinic actually needs: the procedures you run, the space you have, your budget and your timeline. Then we find suppliers who fit.",
+      practice: "Before we contact any supplier, we agree a written brief with you. If the right answer is to buy less, buy refurbished, or wait, we’ll tell you.",
+    },
+    {
+      title: "Honesty about how we’re paid",
+      body: "We’re paid a commission by the supplier, and only when a deal is completed. Clinics pay us nothing. We say this up front because you deserve to know where our money comes from.",
+      practice: "We disclose our commission arrangements on request. Every recommendation comes with a side-by-side comparison of the quotes we gathered, so you can see the options for yourself and the final choice is always yours.",
+    },
+    {
+      title: "Vetted suppliers, not a directory",
+      body: "Anyone can put together a list of suppliers. What matters is knowing which ones deliver what they promise. We check suppliers before we introduce them to you.",
+      practice: "We confirm company registration, product certifications ([CE marking/MDR] where required), delivery track record and after-sales support. If a supplier doesn’t meet the standard, they don’t get introduced.",
+    },
+    {
+      title: "Fair to both sides",
+      body: "A good deal is one both parties would happily make again. We don’t squeeze suppliers into deals that will fall apart, and we don’t oversell to clinics.",
+      practice: "Clear quotes with no hidden costs, honest delivery timelines, and terms both sides understand before anyone signs.",
+    },
+    {
+      title: "We do what we say",
+      body: "In healthcare procurement, trust is the real currency. It’s built slowly and lost quickly. We’d rather promise less and deliver every time.",
+      practice: "One named contact for your request, replies within [one working day], and a straight answer when we can’t help.",
+    },
+    {
+      title: "Better equipment where it matters most",
+      body: "Small clinics in growing healthcare markets are often underserved by large distributors. We want to change that, from independent practices in Europe to private clinics in West and North Africa.",
+      practice: "We work markets where we can make a real difference, and we build long-term relationships rather than chasing one-off sales.",
+    },
+  ],
+  why: {
+    title: "Why we do this",
+    body: "Medixis was founded on Christian conviction. We believe business can be a form of service, and that honest dealing, fair pricing and care for the people at the end of the supply chain (patients in clinics we’ll never see) are part of doing work well. We serve clients and partners of every faith and none. What we ask of ourselves is integrity.",
+  },
+};
 
 export const audiences = [
   { title: "Small private clinics", body: "Specialist and general practices that need the right equipment but have no procurement team to chase suppliers." },

@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import WhereWeWork from "@/components/about/WhereWeWork";
 import ContactDiagram from "@/components/about/ContactDiagram";
 import Reveal from "@/components/Reveal";
-import { asset, mission, threeSides, values, vision, whoWeAre, whyMedixis } from "@/lib/site";
+import { asset, mission, standFor, threeSides, vision, whoWeAre, whyMedixis } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -19,6 +19,17 @@ function StoryHead({ id, eyebrow, title }: { id: string; eyebrow: string; title:
       <p className="eyebrow">{eyebrow}</p>
       <h2 id={id} className="text-h2 mt-4 max-w-[20ch]">{title}</h2>
     </Reveal>
+  );
+}
+
+/** Shows [bracketed] text as a "still to confirm" placeholder, without the brackets. */
+function Bracketed({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(/(\[[^\]]+\])/).map((part, i) =>
+        part.startsWith("[") ? <span key={i} className="todo" title="To confirm before launch">{part.slice(1, -1)}</span> : part,
+      )}
+    </>
   );
 }
 
@@ -57,18 +68,37 @@ export default function About() {
         </div>
       </section>
 
-      {/* VALUES — navy */}
+      {/* WHAT WE STAND FOR — navy, large */}
       <section aria-labelledby="values" className="chapter navy on-dark">
         <div className="container-content">
-          <StoryHead id="values" eyebrow="Our values" title="What we stand for." />
-          <ul className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((v, i) => (
-              <Reveal as="li" key={v.title} delay={i * 0.06} className="border-t border-ink/15 pt-6">
-                <h3 className="text-h3">{v.title}</h3>
-                <p className="mt-3 text-muted">{v.body}</p>
+          <Reveal className="max-w-4xl">
+            <p className="eyebrow">Our principles</p>
+            <h2 id="values" className="text-h1 mt-4">What we stand for.</h2>
+            <p className="mt-8 text-[clamp(1.25rem,1.9vw,1.6rem)] leading-relaxed text-ink">{standFor.intro}</p>
+            <p className="mt-8 font-serif text-[clamp(1.5rem,2.4vw,2.1rem)] italic leading-snug text-ink">{standFor.holdUs}</p>
+          </Reveal>
+
+          <ol className="mt-20 border-t border-ink/15">
+            {standFor.principles.map((pr, i) => (
+              <Reveal as="li" key={pr.title} className="grid gap-6 border-b border-ink/15 py-12 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12 lg:py-16">
+                <span className="text-outline font-serif text-[clamp(3.5rem,6vw,5.5rem)] leading-none text-white/70" aria-hidden="true">{i + 1}</span>
+                <h3 className="text-[clamp(1.75rem,2.6vw,2.4rem)] leading-tight">
+                  <span className="sr-only">{i + 1}. </span>{pr.title}
+                </h3>
+                <div className="md:col-start-2 lg:col-start-auto">
+                  <p className="text-lead text-ink">{pr.body}</p>
+                  <p className="mt-6 border-l-2 border-turquoise pl-5 text-body">
+                    <span className="font-semibold text-white">In practice: </span><Bracketed text={pr.practice} />
+                  </p>
+                </div>
               </Reveal>
             ))}
-          </ul>
+          </ol>
+
+          <Reveal className="mx-auto mt-24 max-w-3xl text-center">
+            <p className="eyebrow">{standFor.why.title}</p>
+            <p className="mt-6 font-serif text-[clamp(1.5rem,2.5vw,2.15rem)] leading-[1.35] text-ink">{standFor.why.body}</p>
+          </Reveal>
         </div>
       </section>
 
