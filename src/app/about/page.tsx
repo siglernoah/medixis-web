@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
+import Globe from "@/components/Globe";
 import Reveal from "@/components/Reveal";
 import MagneticButton, { Arrow } from "@/components/MagneticButton";
 import { asset, mission, site, story, values, vision, whoWeAre } from "@/lib/site";
@@ -19,6 +20,13 @@ function StoryHead({ id, eyebrow, title }: { id: string; eyebrow: string; title:
     </Reveal>
   );
 }
+
+const places = [
+  { name: "Denmark", detail: "Headquarters, Aarhus" },
+  { name: "Eastern Europe", detail: "Poland, Romania, Bulgaria, Latvia" },
+  { name: "Morocco", detail: "North Africa" },
+  { name: "Nigeria", detail: "West Africa" },
+];
 
 export default function About() {
   return (
@@ -85,31 +93,40 @@ export default function About() {
         </div>
       </section>
 
-      {/* GROWTH — navy */}
-      <section aria-labelledby="growth" className="navy on-dark chapter">
+      {/* STORY + WHERE WE WORK — navy, with the interactive globe */}
+      <section aria-labelledby="story" className="chapter navy on-dark overflow-hidden">
         <div className="container-content">
-          <Reveal>
-            <p className="eyebrow">Growing with purpose</p>
-            <h2 id="growth" className="text-h2 mt-4 max-w-[16ch]">A distributed team, headquartered in {site.city}.</h2>
-            <p className="mt-6 max-w-lg">
-              We are building long-term relationships with private clinics, private hospitals and the suppliers who serve them, with one aim: to take sourcing work off clinics so their teams can spend more time on patient care.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* STORY + closing call to action */}
-      <section aria-labelledby="story" className="chapter">
-        <div className="container-content">
-          <StoryHead id="story" eyebrow="Our story" title="More than connecting suppliers and providers." />
-          <div className="mt-12 grid gap-8 md:grid-cols-2 md:gap-16">
-            <div className="space-y-6 md:col-start-2">
+          <StoryHead id="story" eyebrow="Our story · Where we work" title="More than connecting suppliers and providers." />
+          <div className="mt-12 grid items-start gap-12 md:grid-cols-2 md:gap-16">
+            <div className="md:sticky md:top-24">
+              <Globe className="mx-auto max-w-[36rem]" />
+              <p className="mt-2 text-center text-small text-muted" aria-hidden="true">Drag to spin</p>
+              <ul className="mt-8 grid gap-4 border-t border-ink/15 pt-6 text-[1rem] sm:grid-cols-2" aria-label="Where Medixis operates">
+                {places.map((p) => (
+                  <li key={p.name} className="flex gap-3">
+                    <span aria-hidden="true" className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+                    <span><span className="font-semibold text-ink">{p.name}</span><br /><span className="text-muted">{p.detail}</span></span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="space-y-6">
+              <Reveal>
+                <p className="text-lead text-ink">
+                  We work as a distributed team, headquartered in {site.city}, with operations across Eastern Europe, Morocco and Nigeria.
+                </p>
+              </Reveal>
               {story.map((para, i) => (
-                <Reveal key={i} delay={i * 0.05}><p className={i === 0 ? "text-lead text-ink" : "text-body"}>{para}</p></Reveal>
+                <Reveal key={i} delay={i * 0.05}><p className="text-body">{para}</p></Reveal>
               ))}
+              <Reveal>
+                <p className="text-body">
+                  Wherever we work, the aim is the same: to take sourcing work off clinics so their teams can spend more time on patient care.
+                </p>
+              </Reveal>
               <div className="flex flex-wrap gap-3 pt-6">
-                <MagneticButton href="/contact/">Request quotes <Arrow /></MagneticButton>
-                <MagneticButton href="/team/" variant="secondary">Meet the team</MagneticButton>
+                <MagneticButton href="/contact/" variant="light">Request quotes <Arrow /></MagneticButton>
+                <MagneticButton href="/team/" variant="ghost">Meet the team</MagneticButton>
               </div>
             </div>
           </div>
