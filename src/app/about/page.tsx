@@ -40,10 +40,18 @@ export default function About() {
           </Reveal>
           <div className="mx-auto mt-10 max-w-2xl space-y-6 text-center">
             <Reveal><p className="text-lead text-ink">{whoWeAre.lead}</p></Reveal>
-            {whoWeAre.paragraphs.map((para, i) => (
+            {whoWeAre.intro.map((para, i) => (
               <Reveal key={i} delay={0.04 * (i + 1)}><p className="text-body">{para}</p></Reveal>
             ))}
-            <p className="todo inline-block text-small">Draft written from the company profile. Add wording from the Medixis LinkedIn posts before launch.</p>
+          </div>
+          <Reveal className="mx-auto my-16 max-w-3xl border-y border-ink/15 py-12 text-center">
+            <p className="eyebrow">{whoWeAre.perspective.eyebrow}</p>
+            <p className="mt-4 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] text-ink">{whoWeAre.perspective.title}</p>
+          </Reveal>
+          <div className="mx-auto max-w-2xl space-y-6 text-center">
+            {whoWeAre.approach.map((para, i) => (
+              <Reveal key={i} delay={0.04 * i}><p className="text-body">{para}</p></Reveal>
+            ))}
           </div>
           <ContactDiagram />
         </div>

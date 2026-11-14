@@ -146,13 +146,21 @@ export const team = [
   { name: "Istishna Saleem", role: "Client Relations", email: "saleem@medixisgroup.com", photo: asset("/images/istishna-saleem.webp") },
 ];
 
-// DRAFT "Who we are" copy, written only from the company profile, founding story and the offer.
-// Replace or extend with wording from the Medixis LinkedIn posts.
+// "Who we are": wording from the Medixis LinkedIn post "Why choose Medixis?" (carousel and caption),
+// plus the offer and team facts from the company profile.
 export const whoWeAre = {
   lead: "Medixis is a medical equipment sourcing partner for private clinics and private hospitals.",
-  paragraphs: [
-    "We started Medixis because buying equipment takes up time that clinics don\u2019t have. Finding suppliers, checking them and comparing quotes is real work, and in a small clinic it usually lands on people whose job is caring for patients.",
-    "So we do that work for them. A clinic tells us what it needs. We find suppliers that fit, check them before we put them forward, and bring back quotes the clinic can compare side by side on price, warranty, service and delivery. The clinic makes the decision, and the supplier invoices the clinic directly.",
+  intro: [
+    "We believe the best equipment decisions begin with understanding what a healthcare organisation is working to achieve. Behind every equipment request is an organisation working towards something: opening a room, replacing an ageing unit, expanding a service or improving how it operates.",
+    "A clinic opening a new treatment room needs more than an examination table. It needs equipment that meets its clinical requirements, arrives when it is needed and fits the plans and resources of the practice.",
+  ],
+  perspective: {
+    eyebrow: "Our perspective",
+    title: "This is where the Medixis approach begins.",
+  },
+  approach: [
+    "We bring a business perspective to medical equipment sourcing. That means looking at the purchase in the context of the organisation making it: its plans, budget, timeline and operational needs. We use that understanding to help identify suitable suppliers and bring clarity to the commercial details behind their quotations.",
+    "For us, the objective is to help the provider make a well-informed decision about the agreement as a whole: an agreement that works for the patients, people and organisation relying on it.",
     "We are paid by suppliers, through a commission on completed purchases, so the service is free for clinics. We say that plainly because trust depends on it: a sourcing partner is only useful if the clinic can see how it works.",
     "Medixis is founder-led and works as a distributed team, headquartered in Aarhus, Denmark. Our founders, Jonas Jorgensen and Noah Sigler, are directly involved in the work, so clinics deal with the people accountable for their requests.",
   ],
