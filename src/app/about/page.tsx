@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import WhereWeWork from "@/components/about/WhereWeWork";
+import ContactDiagram from "@/components/about/ContactDiagram";
 import Reveal from "@/components/Reveal";
 import { asset, mission, values, vision, whoWeAre } from "@/lib/site";
 
@@ -29,19 +30,21 @@ export default function About() {
         lead="Clinics shouldn't have to chase suppliers and compare quotes on their own. We do that legwork for free. Suppliers pay us, and the clinic always decides."
       />
 
-      {/* WHO WE ARE — replaces the large photo */}
+      {/* WHO WE ARE — centred, with the with/without diagram */}
       <section aria-labelledby="who-we-are" className="pb-[var(--spacing-chapter)]">
         <div className="container-content">
-          <StoryHead id="who-we-are" eyebrow="Who we are" title="A sourcing partner that works for the clinic." />
-          <div className="mt-12 grid gap-8 md:grid-cols-2 md:gap-16">
-            <div className="space-y-6 md:col-start-2">
-              <Reveal><p className="text-lead text-ink">{whoWeAre.lead}</p></Reveal>
-              {whoWeAre.paragraphs.map((para, i) => (
-                <Reveal key={i} delay={0.04 * (i + 1)}><p className="text-body">{para}</p></Reveal>
-              ))}
-              <p className="todo inline-block text-small">Draft written from the company profile. Add wording from the Medixis LinkedIn posts before launch.</p>
-            </div>
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Who we are</p>
+            <h2 id="who-we-are" className="text-h2 mx-auto mt-4 max-w-[20ch]">A sourcing partner that works for the clinic.</h2>
+          </Reveal>
+          <div className="mx-auto mt-10 max-w-2xl space-y-6 text-center">
+            <Reveal><p className="text-lead text-ink">{whoWeAre.lead}</p></Reveal>
+            {whoWeAre.paragraphs.map((para, i) => (
+              <Reveal key={i} delay={0.04 * (i + 1)}><p className="text-body">{para}</p></Reveal>
+            ))}
+            <p className="todo inline-block text-small">Draft written from the company profile. Add wording from the Medixis LinkedIn posts before launch.</p>
           </div>
+          <ContactDiagram />
         </div>
       </section>
 

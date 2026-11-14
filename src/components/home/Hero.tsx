@@ -46,19 +46,19 @@ export default function Hero() {
         <div className="container-content relative grid">
           {/* Intro */}
           <motion.div style={reduce ? undefined : { opacity: introOpacity, y: introY }} className="col-start-1 row-start-1 max-w-[46rem]">
-            <p className="rise text-small font-semibold text-turquoise" style={{ animationDelay: "0.1s" }}>For private clinics and hospitals</p>
-            <h1 id="hero-title" className="rise mt-5 text-[clamp(2.75rem,6vw,6rem)] leading-[1.04] tracking-[-0.01em] text-white" style={{ animationDelay: "0.2s" }}>
+            <p className="rise text-small font-semibold text-turquoise" style={{ "--d": "0.1s" } as React.CSSProperties}>For private clinics and hospitals</p>
+            <h1 id="hero-title" className="rise mt-5 text-[clamp(2.75rem,6vw,6rem)] leading-[1.04] tracking-[-0.01em] text-white" style={{ "--d": "0.2s" } as React.CSSProperties}>
               Better equipment quotes.
               <br />
               <span>Free for clinics.</span>
             </h1>
-            <p className="rise mt-8 font-serif text-[clamp(1.5rem,2.4vw,2rem)] leading-snug text-white" style={{ animationDelay: "0.3s" }}>
+            <p className="rise mt-8 font-serif text-[clamp(1.5rem,2.4vw,2rem)] leading-snug text-white" style={{ "--d": "0.3s" } as React.CSSProperties}>
               Suppliers pay us, not you.
             </p>
-            <p className="rise text-lead mt-4 max-w-[34rem] text-on-dark-muted" style={{ animationDelay: "0.38s" }}>
+            <p className="rise text-lead mt-4 max-w-[34rem] text-on-dark-muted" style={{ "--d": "0.38s" } as React.CSSProperties}>
               Tell us what your clinic needs. We find and vet suppliers, collect their quotes, and you choose. No fee and no obligation.
             </p>
-            <div className="rise mt-10 flex flex-wrap gap-3" style={{ animationDelay: "0.5s" }}>
+            <div className="rise mt-10 flex flex-wrap gap-3" style={{ "--d": "0.5s" } as React.CSSProperties}>
               <MagneticButton href="/contact/" variant="light">Request quotes <Arrow /></MagneticButton>
               <MagneticButton href="#how-it-works" variant="ghost">How it works</MagneticButton>
             </div>

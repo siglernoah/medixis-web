@@ -129,7 +129,34 @@ p { text-wrap: pretty; }
 
 /* Hero entrance — pure CSS so it paints before JS hydrates (protects LCP) */
 @keyframes rise { from { opacity: 0.01; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-.rise { animation: rise var(--dur-slow) var(--ease-out-premium) both; }
+.rise { animation: rise var(--dur-slow) var(--ease-out-premium) both; animation-delay: var(--d, 0s); }
+html.intro .rise { animation-delay: calc(var(--d, 0s) + 2.5s); }
+
+/* ---------- Homepage intro (max 3 s): navy → aurora → logo → tagline → fade into the page ---------- */
+.intro-overlay { display: none; }
+html.intro .intro-overlay {
+  display: flex; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center;
+  background: #060d17; overflow: hidden;
+  animation: intro-out 3s linear forwards;
+}
+@keyframes intro-out { 0%, 80% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+.intro-aurora { position: absolute; border-radius: 9999px; filter: blur(70px); opacity: 0; will-change: transform, opacity; }
+.intro-aurora.a1 { width: 70vmax; height: 30vmax; left: 30%; top: -6%; background: rgb(0 166 188 / 0.32);
+  transform: rotate(-24deg); animation: aurora-in 0.9s ease-out 0.15s forwards, aurora-1 3s ease-in-out forwards; }
+.intro-aurora.a2 { width: 60vmax; height: 24vmax; left: -18%; bottom: -4%; background: rgb(0 140 170 / 0.28);
+  transform: rotate(-24deg); animation: aurora-in 0.9s ease-out 0.3s forwards, aurora-2 3s ease-in-out forwards; }
+.intro-aurora.a3 { width: 40vmax; height: 14vmax; left: 40%; top: 46%; background: rgb(60 200 215 / 0.14);
+  transform: rotate(-20deg); animation: aurora-in 1s ease-out 0.45s forwards, aurora-3 3s ease-in-out forwards; }
+@keyframes aurora-in { to { opacity: 1; } }
+@keyframes aurora-1 { 0% { translate: -4% 0; scale: 1 0.9; } 50% { translate: 3% 4%; scale: 1.08 1.1; } 100% { translate: 6% -2%; scale: 1 0.95; } }
+@keyframes aurora-2 { 0% { translate: 4% 0; scale: 1; } 50% { translate: -3% -5%; scale: 1.1 0.9; } 100% { translate: -6% 2%; scale: 1 1.05; } }
+@keyframes aurora-3 { 0% { translate: 0 0; } 50% { translate: -8% -6%; } 100% { translate: -4% 4%; } }
+.intro-logo { opacity: 0; animation: intro-logo 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards; }
+@keyframes intro-logo { from { opacity: 0; transform: translateY(10px) scale(0.98); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+.intro-tag { opacity: 0; animation: intro-fade 0.6s ease-out 1.05s forwards; }
+.intro-rule { transform: scaleX(0); animation: intro-rule 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.05s forwards; }
+@keyframes intro-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes intro-rule { to { transform: scaleX(1); } }
 
 /* ---------- Two surfaces only: white, and navy with a soft turquoise fade ---------- */
 .navy {
@@ -167,3 +194,11 @@ p { text-wrap: pretty; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- About: contact diagrams (drawn left to right on scroll) ---------- */
+.dg .dg-line { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s); }
+.dg .dg-node { opacity: 0; transform: translateX(-10px); transform-box: fill-box; transition: opacity 0.5s ease var(--d, 0s), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s); }
+.dg .dg-node.dg-v { transform: translateY(-8px); }
+.dg.play .dg-line { stroke-dashoffset: 0; }
+.dg.play .dg-node { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .dg .dg-line { stroke-dashoffset: 0; } .dg .dg-node { opacity: 1; transform: none; } }

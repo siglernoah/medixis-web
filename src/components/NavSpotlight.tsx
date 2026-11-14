@@ -43,7 +43,7 @@ export default function NavSpotlight({ anchors }: { anchors: React.RefObject<HTM
     };
 
     const fade = () => {
-      const o = Math.max(0, 1 - window.scrollY / (window.innerHeight * 0.55));
+      const o = Math.max(0, 1 - window.scrollY / (window.innerHeight * 0.3));
       node.style.opacity = String(o);
     };
 

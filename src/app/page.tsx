@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/home/Hero";
+import Intro from "@/components/home/Intro";
 import Process from "@/components/home/Process";
 import Reveal from "@/components/Reveal";
 import Faq from "@/components/Faq";
@@ -34,6 +35,7 @@ export default function Home() {
   const fitCriteria = ["Price", "Warranty", "Service", "Delivery"];
   return (
     <>
+      <Intro />
       <Hero />
 
       {/* 2 — HOW IT WORKS */}
