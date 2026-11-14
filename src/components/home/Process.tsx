@@ -8,14 +8,43 @@ import { steps } from "@/lib/site";
  * Second "wow" moment: on desktop the section pins and the four steps
  * travel horizontally with scroll. Mobile / reduced motion: a calm vertical list.
  */
+// A flat line with two ECG-style beats, drawn in a 1000×60 box.
+const HB_W = 1000, HB_H = 60;
+const beat = (x: number) =>
+  `H${x} l14 -5 l12 5 h14 l7 9 l13 -46 l13 52 l8 -15 h16 l18 -7 l16 7`;
+const HEARTBEAT = `M0 30 ${beat(250)} ${beat(640)} H${HB_W}`;
+
 export default function Process() {
   const section = useRef<HTMLElement>(null);
   const track = useRef<HTMLOListElement>(null);
-  const bar = useRef<HTMLDivElement>(null);
+  const pulse = useRef<SVGPathElement>(null);
+  const dot = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const mm = gsap.matchMedia();
+    const line = pulse.current!;
+    const len = line.getTotalLength();
+    // Draw the heartbeat up to progress p (0..1) and park the dot at its tip.
+    const draw = (p: number) => {
+      line.style.strokeDashoffset = String(1 - p);
+      const svg = line.ownerSVGElement!;
+      const pt = line.getPointAtLength(len * p);
+      const box = svg.getBoundingClientRect();
+      if (dot.current) {
+        dot.current.style.transform = `translate(${(pt.x / HB_W) * box.width}px, ${(pt.y / HB_H) * box.height}px)`;
+        dot.current.style.opacity = p > 0.001 && p < 0.999 ? "1" : "0";
+      }
+    };
+    const state = { p: 0 };
+    mm.add("(prefers-reduced-motion: reduce)", () => draw(1));
+    mm.add("(max-width: 1023px) and (prefers-reduced-motion: no-preference)", () => {
+      draw(0);
+      gsap.to(state, {
+        p: 1, ease: "none", onUpdate: () => draw(state.p),
+        scrollTrigger: { trigger: section.current, start: "top 75%", end: "bottom 40%", scrub: 0.6 },
+      });
+    });
     mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
       const el = track.current!;
       const distance = () => el.scrollWidth - el.clientWidth;
@@ -30,7 +59,9 @@ export default function Process() {
         },
       });
       tl.to(el, { x: () => -distance(), ease: "none" }, 0);
-      tl.fromTo(bar.current, { scaleX: 0.25 }, { scaleX: 1, ease: "none" }, 0);
+      draw(0);
+      state.p = 0;
+      tl.to(state, { p: 1, ease: "none", onUpdate: () => draw(state.p) }, 0);
     });
     return () => mm.revert();
   }, []);
@@ -45,8 +76,24 @@ export default function Process() {
           </div>
           <p className="max-w-sm text-muted">No account, no fee, no obligation. The supplier invoices you directly, and Medixis never sends you a bill.</p>
         </div>
-        <div className="mt-12 hidden h-px w-full bg-line lg:block" aria-hidden="true">
-          <div ref={bar} className="h-px w-full origin-left bg-accent" />
+        {/* Heartbeat progress line: draws (and un-draws) through two pulses as you scroll */}
+        <div className="relative mt-12 h-14 w-full" aria-hidden="true">
+          <svg viewBox={`0 0 ${HB_W} ${HB_H}`} preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
+            <path d={HEARTBEAT} fill="none" stroke="var(--color-line)" strokeWidth="1.5" strokeLinejoin="round" />
+            <path
+              ref={pulse}
+              d={HEARTBEAT}
+              pathLength={1}
+              fill="none"
+              stroke="var(--color-accent)"
+              strokeWidth="2"
+             
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              style={{ strokeDasharray: 1, strokeDashoffset: 0 }}
+            />
+          </svg>
+          <span ref={dot} className="absolute -left-[5px] -top-[5px] h-2.5 w-2.5 rounded-full bg-accent opacity-0 shadow-[0_0_0_6px_rgb(0_114_133/0.15)]" />
         </div>
       </div>
 

@@ -136,6 +136,18 @@ export const team = [
   { name: "Istishna Saleem", role: "Client Relations", email: "saleem@medixisgroup.com", photo: asset("/images/istishna-saleem.webp") },
 ];
 
+// DRAFT "Who we are" copy, written only from the company profile, founding story and the offer.
+// Replace or extend with wording from the Medixis LinkedIn posts.
+export const whoWeAre = {
+  lead: "Medixis is a medical equipment sourcing partner for private clinics and private hospitals.",
+  paragraphs: [
+    "We started Medixis because buying equipment takes up time that clinics don\u2019t have. Finding suppliers, checking them and comparing quotes is real work, and in a small clinic it usually lands on people whose job is caring for patients.",
+    "So we do that work for them. A clinic tells us what it needs. We find suppliers that fit, check them before we put them forward, and bring back quotes the clinic can compare side by side on price, warranty, service and delivery. The clinic makes the decision, and the supplier invoices the clinic directly.",
+    "We are paid by suppliers, through a commission on completed purchases, so the service is free for clinics. We say that plainly because trust depends on it: a sourcing partner is only useful if the clinic can see how it works.",
+    "Medixis is founder-led and works as a distributed team, headquartered in Aarhus, Denmark. Our founders, Jonas Jorgensen and Noah Sigler, are directly involved in the work, so clinics deal with the people accountable for their requests.",
+  ],
+};
+
 export const story = [
   "Medixis was founded on a simple belief: healthcare supply chains can and should work better. We set out to make medical equipment sourcing more efficient, reliable and transparent, building relationships founded on trust and accountability.",
   "But our vision has always extended beyond business. At the heart of Medixis is a commitment to helping people and making quality healthcare more accessible. We aspire to turn that commitment into meaningful action, including through a future charitable initiative focused on providing medical equipment to underserved communities, particularly in regions of Africa where access to essential healthcare remains limited.",
