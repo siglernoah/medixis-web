@@ -47,7 +47,7 @@ export default function Hero() {
           {/* Intro */}
           <motion.div style={reduce ? undefined : { opacity: introOpacity, y: introY }} className="col-start-1 row-start-1 max-w-[46rem]">
             <p className="rise eyebrow" style={{ animationDelay: "0.1s" }}>For private clinics and hospitals</p>
-            <h1 id="hero-title" className="rise text-display mt-5 font-semibold text-ink" style={{ animationDelay: "0.2s" }}>
+            <h1 id="hero-title" className="rise mt-5 text-[clamp(2.75rem,6vw,6rem)] font-semibold leading-[1.02] tracking-[var(--tracking-display)] text-ink" style={{ animationDelay: "0.2s" }}>
               Better equipment quotes.
               <br />
               <span className="text-accent">Free for clinics.</span>
