@@ -9,15 +9,15 @@ import MotionProvider from "@/components/MotionProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: "Medixis — Medical equipment sourcing for healthcare providers", template: "%s — Medixis" },
+  title: { default: "Medixis — Better equipment quotes. Free for clinics.", template: "%s — Medixis" },
   description: site.description,
   openGraph: {
     type: "website",
     siteName: "Medixis",
     url: site.url,
-    title: "Medixis — The right equipment. Right on time.",
+    title: "Medixis — Better equipment quotes. Free for clinics.",
     description: site.description,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Medixis" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Medixis — Better equipment quotes. Free for clinics." }],
   },
   twitter: { card: "summary_large_image" },
   alternates: { canonical: "/" },

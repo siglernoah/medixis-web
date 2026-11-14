@@ -6,15 +6,15 @@ import { audiences, categories, steps } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Medical equipment sourcing, supplier matching, itemised quotation, contracting and delivery for hospitals, clinics, care homes and rehabilitation providers.",
+  description: "Medixis sources and vets medical equipment quotes for private clinics and hospitals, from large equipment to consumables. Free for clinics: suppliers pay us.",
   alternates: { canonical: "/services/" },
 };
 
 const handled = [
-  { title: "Sourcing & supplier matching", body: "We match your specification against our vetted supplier network across the EU and beyond, and shortlist the options that fit." },
-  { title: "Itemised quotation", body: "Pricing, specifications and lead times side by side — typically within 24 hours, with payment terms confirmed in writing." },
-  { title: "Contracting", body: "Once you approve, we handle contracting with the supplier, so you keep a single commercial relationship." },
-  { title: "Delivery & support", body: "Equipment ships directly to your facility with tracking, and we stay involved until it is installed and running." },
+  { title: "Sourcing", body: "We do the supplier legwork: finding suppliers that can deliver what your clinic has asked for." },
+  { title: "Vetting & matching", body: "We assess suppliers and match them to your needs. We are not a directory that leaves the checking to you." },
+  { title: "Quotes side by side", body: "You see the options compared on price, warranty, service and delivery, so the differences are clear." },
+  { title: "You choose", body: "You make the final decision. The supplier invoices you directly, and Medixis never sends you a bill." },
 ];
 
 export default function Services() {
@@ -22,8 +22,8 @@ export default function Services() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="From single items to full departments."
-        lead="Whether it's twelve patient monitors for a regional hospital or a complete tender, we source across categories through one coordinator."
+        title="Equipment sourcing for private clinics, free."
+        lead="From a single device to consumables you reorder, we find vetted suppliers and bring you their quotes. Suppliers pay us, not you."
       />
 
       <section aria-labelledby="handled" className="pb-[var(--spacing-chapter)]">
@@ -43,7 +43,7 @@ export default function Services() {
         </div>
       </section>
 
-      <Chapter id="categories" eyebrow="What we source" title="Equipment categories." tone="mist">
+      <Chapter id="categories" eyebrow="What we source" title="Large equipment and everyday items." tone="mist">
         <ul className="mt-12 grid border-t border-ink/15 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((c) => (
             <li key={c.title} className="border-b border-ink/15 py-7 sm:pr-8">
@@ -52,11 +52,11 @@ export default function Services() {
             </li>
           ))}
         </ul>
-        <p className="mt-8 text-muted">Can&rsquo;t see what you need? Ask anyway — no request is left unanswered.</p>
+        <p className="mt-8 text-muted">We also handle consumables and smaller items, not only large equipment. Can&rsquo;t see what you need? Ask anyway.</p>
       </Chapter>
 
-      <Chapter id="who" eyebrow="Who we serve" title="Built for the facilities that care for patients.">
-        <ul className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <Chapter id="who" eyebrow="Who we serve" title="Built for private clinics and hospitals.">
+        <ul className="mt-14 grid gap-10 md:grid-cols-2">
           {audiences.map((a, i) => (
             <Reveal as="li" key={a.title} delay={i * 0.06} className="border-t border-ink/15 pt-6">
               <h3 className="text-xl">{a.title}</h3>
@@ -64,10 +64,11 @@ export default function Services() {
             </Reveal>
           ))}
         </ul>
+        <p className="mt-10 text-muted">We don&rsquo;t take part in public tenders or government procurement.</p>
       </Chapter>
 
-      <Chapter id="process" eyebrow="Process" title="Four steps. One coordinator." tone="mist">
-        <ol className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <Chapter id="process" eyebrow="Process" title="Three simple steps." tone="mist">
+        <ol className="mt-14 grid gap-10 md:grid-cols-3">
           {steps.map((s, i) => (
             <Reveal as="li" key={s.n} delay={i * 0.06} className="border-t border-ink/15 pt-6">
               <span className="text-small font-semibold text-accent">{s.n}</span>
@@ -76,14 +77,14 @@ export default function Services() {
             </Reveal>
           ))}
         </ol>
-        <p className="mt-10 text-small text-muted">Timelines vary with product availability, supplier lead times and delivery requirements.</p>
+        <p className="mt-10 text-small text-muted">Timelines depend on product availability and supplier lead times.</p>
       </Chapter>
 
       <section className="chapter bg-ink text-center on-dark">
         <div className="container-content">
-          <h2 className="text-h2 mx-auto max-w-[18ch] text-on-dark">Send us your specification.</h2>
+          <h2 className="text-h2 mx-auto max-w-[18ch] text-on-dark">Tell us what your clinic needs.</h2>
           <div className="mt-10 flex justify-center">
-            <MagneticButton href="/contact/" variant="light">Get a quote <Arrow /></MagneticButton>
+            <MagneticButton href="/contact/" variant="light">Request quotes <Arrow /></MagneticButton>
           </div>
         </div>
       </section>

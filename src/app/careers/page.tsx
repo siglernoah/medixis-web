@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const roles = [
-  { title: "International affiliates", body: "Represent Medixis in your region and introduce healthcare providers who need equipment." },
+  { title: "International affiliates", body: "Represent Medixis in your region and introduce private clinics and hospitals that need equipment." },
   { title: "Business-development partners", body: "Help us grow the supplier network and open new markets." },
 ];
 

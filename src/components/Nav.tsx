@@ -32,7 +32,7 @@ export default function Nav() {
 
         <ul className="hidden items-center gap-8 text-[0.9375rem] lg:flex">
           {nav.map((item) => {
-            const active = pathname?.startsWith(item.href);
+            const active = !item.href.includes("#") && pathname?.startsWith(item.href);
             return (
               <li key={item.href}>
                 <Link
@@ -55,7 +55,7 @@ export default function Nav() {
             href="/contact/"
             className="rounded-full bg-ink px-5 py-2.5 text-[0.9375rem] font-semibold text-white transition-colors duration-[var(--dur-fast)] hover:bg-accent"
           >
-            Get a quote
+            Request quotes
           </Link>
         </div>
 
@@ -84,7 +84,7 @@ export default function Nav() {
           ))}
           <li className="mt-4 flex flex-wrap gap-3 border-t border-line pt-6">
             <Link href="/contact/" className="rounded-full bg-ink px-5 py-3 font-semibold text-white">
-              Get a quote
+              Request quotes
             </Link>
             <a href={site.clientLogin} className="rounded-full border border-line px-5 py-3 text-ink">
               Client log in

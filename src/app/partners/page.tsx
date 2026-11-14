@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const paths = [
-  { title: "Client sourcing", body: "Introduce hospitals, clinics or care homes that need medical equipment. Earn commission when their contract closes." },
+  { title: "Client sourcing", body: "Introduce private clinics or private hospitals that need medical equipment. Earn commission when their contract closes." },
   { title: "Supplier sourcing", body: "Introduce medical equipment suppliers looking for new healthcare buyers. Earn commission when they sign." },
 ];
 const why = [
@@ -36,7 +36,7 @@ export default function Partners() {
       <PageHeader
         eyebrow="Partner programme"
         title="Become a Medixis partner."
-        lead="Earn commission by connecting Medixis with the right people — healthcare providers looking for equipment, or suppliers looking for new buyers."
+        lead="Earn commission by connecting Medixis with the right people — private clinics and hospitals looking for equipment, or suppliers looking for new buyers."
       />
 
       <section aria-label="Partner paths" className="pb-[var(--spacing-chapter)]">

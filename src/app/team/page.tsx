@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import MagneticButton, { Arrow } from "@/components/MagneticButton";
-import { stats, team } from "@/lib/site";
+import { team } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Team",
-  description: "Meet the people behind Medixis.",
+  description: "Meet the founder-led team behind Medixis, who find and vet equipment quotes for private clinics and hospitals.",
   alternates: { canonical: "/team/" },
 };
 
@@ -15,8 +15,8 @@ export default function Team() {
     <>
       <PageHeader
         eyebrow="Team"
-        title="The people behind your orders."
-        lead={`Medixis is a founder-led team of ${stats.teamSize} across ${stats.countries} countries. When you send a request, you deal directly with the people accountable for it.`}
+        title="The people behind your quotes."
+        lead="Medixis is a founder-led, distributed team. When you request quotes, you deal directly with the people accountable for them."
       />
 
       <section aria-label="Leadership" className="pb-[var(--spacing-chapter)]">

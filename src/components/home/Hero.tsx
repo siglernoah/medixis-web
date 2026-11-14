@@ -28,7 +28,7 @@ export default function Hero() {
     return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
   }, [scrollYProgress]);
 
-  // Text choreography: intro recedes fully before the "one point of contact" line arrives.
+  // Text choreography: intro recedes fully before the outro line arrives.
   const introOpacity = useTransform(scrollYProgress, [0.08, 0.28], [1, 0]);
   const introY = useTransform(scrollYProgress, [0.08, 0.28], [0, -48]);
   const outroOpacity = useTransform(scrollYProgress, [0.34, 0.56], [0, 1]);
@@ -46,17 +46,20 @@ export default function Hero() {
         <div className="container-content relative grid">
           {/* Intro */}
           <motion.div style={reduce ? undefined : { opacity: introOpacity, y: introY }} className="col-start-1 row-start-1 max-w-[46rem]">
-            <p className="rise eyebrow" style={{ animationDelay: "0.1s" }}>Healthcare supply chain partner</p>
+            <p className="rise eyebrow" style={{ animationDelay: "0.1s" }}>For private clinics and hospitals</p>
             <h1 id="hero-title" className="rise text-display mt-5 font-semibold text-ink" style={{ animationDelay: "0.2s" }}>
-              The right equipment.
+              Better equipment quotes.
               <br />
-              <span className="text-accent">Right on time.</span>
+              <span className="text-accent">Free for clinics.</span>
             </h1>
-            <p className="rise text-lead mt-8 max-w-[34rem] text-body" style={{ animationDelay: "0.35s" }}>
-              Medixis sources medical equipment for hospitals, clinics and elderly care homes from a vetted network of suppliers. Send one request and get a quote, typically within 24 hours.
+            <p className="rise mt-8 text-[clamp(1.375rem,2.2vw,1.75rem)] font-semibold leading-snug tracking-[var(--tracking-heading)] text-ink" style={{ animationDelay: "0.3s" }}>
+              Suppliers pay us, not you.
+            </p>
+            <p className="rise text-lead mt-4 max-w-[34rem] text-body" style={{ animationDelay: "0.38s" }}>
+              Tell us what your clinic needs. We find and vet suppliers, collect their quotes, and you choose. No fee and no obligation.
             </p>
             <div className="rise mt-10 flex flex-wrap gap-3" style={{ animationDelay: "0.5s" }}>
-              <MagneticButton href="/contact/">Get a quote <Arrow /></MagneticButton>
+              <MagneticButton href="/contact/">Request quotes <Arrow /></MagneticButton>
               <MagneticButton href="#how-it-works" variant="secondary">How it works</MagneticButton>
             </div>
           </motion.div>
@@ -65,9 +68,9 @@ export default function Hero() {
           {!reduce && (
             <motion.div style={{ opacity: outroOpacity, y: outroY }} className="col-start-1 row-start-1 self-center" aria-hidden="true">
               <p className="text-h1 max-w-[18ch] font-semibold text-ink">
-                Many suppliers.
+                We do the legwork.
                 <br />
-                <span className="text-accent">One point of contact.</span>
+                <span className="text-accent">You make the choice.</span>
               </p>
             </motion.div>
           )}

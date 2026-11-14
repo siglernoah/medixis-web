@@ -5,7 +5,7 @@ import { vetting } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Standards",
-  description: "How Medixis vets medical equipment suppliers, and how we approach compliance and data protection.",
+  description: "Medixis is not a directory. How we assess medical equipment suppliers before matching them to a clinic, and how we handle compliance and data.",
   alternates: { canonical: "/standards/" },
 };
 
@@ -14,8 +14,8 @@ export default function Standards() {
     <>
       <PageHeader
         eyebrow="Standards"
-        title="How we decide who we work with."
-        lead="A broker is only as good as the suppliers it puts in front of you. These are the checks every supplier goes through before we quote them."
+        title="We vet suppliers. We are not a directory."
+        lead="A free service is only worth using if the suppliers are good. These are the checks we make before we put a supplier in front of your clinic."
       />
 
       <section aria-labelledby="vetting" className="pb-[var(--spacing-chapter)]">

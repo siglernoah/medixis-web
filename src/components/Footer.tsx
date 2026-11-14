@@ -8,16 +8,17 @@ const cols = [
     links: [
       { href: "/about/", label: "About" },
       { href: "/team/", label: "Team" },
+      { href: "/standards/", label: "Standards" },
       { href: "/careers/", label: "Careers" },
     ],
   },
   {
     title: "Work with us",
     links: [
+      { href: "/contact/", label: "Request quotes" },
       { href: "/services/", label: "Services" },
-      { href: "/standards/", label: "Standards" },
+      { href: "/suppliers/", label: "For suppliers" },
       { href: "/partners/", label: "Partner programme" },
-      { href: "/contact/", label: "Get a quote" },
     ],
   },
 ];

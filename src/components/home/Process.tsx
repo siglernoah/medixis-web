@@ -41,9 +41,9 @@ export default function Process() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="eyebrow">How it works</p>
-            <h2 id="process-title" className="text-h2 mt-4 max-w-[16ch]">From request to delivery in four steps.</h2>
+            <h2 id="process-title" className="text-h2 mt-4 max-w-[16ch]">Three simple steps.</h2>
           </div>
-          <p className="max-w-sm text-muted">No account and no procurement portal. One coordinator from your first message to installation.</p>
+          <p className="max-w-sm text-muted">No account, no fee, no obligation. The supplier invoices you directly, and Medixis never sends you a bill.</p>
         </div>
         <div className="mt-12 hidden h-px w-full bg-line lg:block" aria-hidden="true">
           <div ref={bar} className="h-px w-full origin-left bg-accent" />

@@ -4,9 +4,11 @@ export const site = {
   legalName: "Medixis Group LLC",
   legalNote: "a Wyoming limited liability company",
   url: "https://medixisgroup.com",
-  tagline: "Healthcare supply chain partner",
+  tagline: "Medical equipment quotes for private clinics",
+  offer: "Better equipment quotes. Free for clinics.",
+  offerSub: "Suppliers pay us, not you.",
   description:
-    "Medixis connects hospitals, clinics and elderly care homes with a vetted network of medical equipment suppliers — one point of contact from request to delivery.",
+    "Medixis finds and vets medical equipment quotes for private clinics and hospitals. It's free for clinics: suppliers pay us a commission, not you.",
   email: "Jonas@medixisgroup.com",
   phone: "+45 93 90 36 60",
   phoneHref: "+4593903660",
@@ -17,11 +19,11 @@ export const site = {
 };
 
 export const nav = [
-  { href: "/about/", label: "About" },
-  { href: "/services/", label: "Services" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/suppliers/", label: "For suppliers" },
   { href: "/standards/", label: "Standards" },
+  { href: "/about/", label: "About" },
   { href: "/team/", label: "Team" },
-  { href: "/contact/", label: "Contact" },
 ];
 
 export const vetting = [
@@ -51,30 +53,19 @@ export const steps = [
   {
     n: "01",
     title: "Tell us what you need",
-    body: "Share the equipment, quantity and timeline for your hospital, clinic or care home. It takes about two minutes — no account or procurement portal required.",
+    body: "Describe the equipment or supplies your clinic needs, plus your timeline. No account, no fee and no obligation.",
   },
   {
     n: "02",
-    title: "We source and quote",
-    body: "We match your request against our vetted supplier network and return an itemised quote with pricing, specifications and lead time — typically within 24 hours.",
+    title: "We source and vet quotes",
+    body: "We do the supplier legwork: we find suppliers that fit your request, check them, and collect their quotes for you.",
   },
   {
     n: "03",
-    title: "Review and confirm",
-    body: "Compare options at your own pace. Once you approve, we handle the contracting, so you never manage multiple vendor relationships.",
-  },
-  {
-    n: "04",
-    title: "Delivered, ready to use",
-    body: "Your order ships directly to your facility with tracking. Your coordinator stays with you until everything is installed and running.",
+    title: "You compare and choose",
+    body: "You see the options side by side and make the final decision. The supplier invoices you directly.",
   },
 ];
-
-// Figures from the Medixis Company Profile (October 2026). Update as they change.
-export const stats = {
-  countries: 9,
-  teamSize: 11,
-};
 
 export const mission = {
   statement: "To simplify medical procurement for healthcare facilities worldwide.",
@@ -92,19 +83,47 @@ export const values = [
 ];
 
 export const audiences = [
-  { title: "Hospitals", body: "Regional and specialist hospitals sourcing equipment across multiple departments, budgets and timelines." },
-  { title: "Clinics", body: "Outpatient and specialist practices that need the right equipment without a dedicated procurement team." },
-  { title: "Elderly care homes", body: "Nursing and care homes that need dependable supply, delivered on time and supported after arrival." },
-  { title: "Rehabilitation & other providers", body: "Rehabilitation centres and other healthcare providers with specific equipment requirements." },
+  { title: "Small private clinics", body: "Specialist and general practices that need the right equipment but have no procurement team to chase suppliers." },
+  { title: "Private hospitals", body: "Private hospitals that want vetted options to compare, without adding work to their purchasing staff." },
 ];
 
 export const categories = [
   { title: "Monitoring & diagnostics", body: "Patient monitors, vital-signs and diagnostic devices." },
   { title: "Imaging equipment", body: "Including mobile X-ray units and related systems." },
-  { title: "Beds & ward furniture", body: "For hospital wards, care homes and rehabilitation." },
-  { title: "Rehabilitation & mobility", body: "Therapy, mobility and patient-handling equipment." },
-  { title: "Medical supplies", body: "Recurring consumables and everyday clinical supplies." },
-  { title: "Tenders & spec-based requests", body: "Send your spec sheet or tender document and we match it." },
+  { title: "Beds & clinical furniture", body: "For patient rooms, wards and treatment areas." },
+  { title: "Therapy & mobility", body: "Therapy, mobility and patient-handling equipment." },
+  { title: "Consumables & smaller items", body: "Everyday clinical supplies and smaller devices, not only large equipment." },
+];
+
+export const faqs = [
+  {
+    q: "Why is this free?",
+    a: "Suppliers pay Medixis a commission when a purchase is completed. Clinics never pay us: there is no fee, subscription or invoice from Medixis. That is how we can do the supplier legwork for you at no cost.",
+  },
+  {
+    q: "Are you biased toward certain suppliers?",
+    a: "We are paid by suppliers, and we tell you that upfront. We present options based on fit for your clinic \u2014 price, warranty, service and delivery \u2014 and you always make the final choice. You are free to compare our quotes with any you find yourself.",
+  },
+  {
+    q: "Who invoices me?",
+    a: "The supplier you choose invoices you directly, and you pay them directly. Medixis does not invoice clinics.",
+  },
+  {
+    q: "What if I already have a quote?",
+    a: "Send it to us. We will look for options that beat it on price, warranty, service or delivery. If our quotes don\u2019t beat what you already have, you keep your current offer and you\u2019ve lost nothing.",
+  },
+  {
+    q: "Do you work with public hospitals?",
+    a: "No. We work with small private clinics and private hospitals. We don\u2019t take part in public tenders or government procurement.",
+  },
+  {
+    q: "Do I have to buy anything?",
+    a: "No. Requesting quotes is free and puts you under no obligation. If none of the options suit you, you simply don\u2019t go ahead.",
+  },
+  {
+    q: "Is it only for large equipment?",
+    a: "No. As well as larger equipment, we can source consumables and smaller items.",
+  },
 ];
 
 export const team = [

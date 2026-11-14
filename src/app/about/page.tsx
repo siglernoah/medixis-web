@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import PageHeader, { Chapter } from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import MagneticButton, { Arrow } from "@/components/MagneticButton";
-import { mission, site, stats, story, values, vision } from "@/lib/site";
+import { mission, site, story, values, vision } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Medixis simplifies medical procurement for healthcare facilities. Our mission, vision, values and story.",
+  description: "Medixis makes equipment sourcing simpler for private clinics and hospitals, free for clinics. Our mission, values and story.",
   alternates: { canonical: "/about/" },
 };
 
@@ -16,7 +16,7 @@ export default function About() {
       <PageHeader
         eyebrow="About Medixis"
         title="Healthcare supply chains can work better."
-        lead="Healthcare providers shouldn't have to manage multiple suppliers, compare countless quotations and coordinate procurement alone. We exist so they don't have to."
+        lead="Clinics shouldn't have to chase suppliers and compare quotes on their own. We do that legwork for free. Suppliers pay us, and the clinic always decides."
       />
 
       <div className="container-content">
@@ -64,28 +64,22 @@ export default function About() {
       </Chapter>
 
       <section aria-labelledby="growth" className="on-dark chapter bg-ink text-on-dark-muted">
-        <div className="container-content grid gap-12 lg:grid-cols-2 lg:items-end">
+        <div className="container-content">
           <Reveal>
             <p className="text-small font-semibold text-accent-on-dark">Growing with purpose</p>
             <h2 id="growth" className="text-h2 mt-4 max-w-[16ch] text-on-dark">A distributed team, headquartered in {site.city}.</h2>
             <p className="mt-6 max-w-lg">
-              We are expanding into new markets and building long-term collaborations with hospitals, clinics and elderly care facilities — always with one aim: to reduce the operational burden on our clients so their teams can spend more time on patient care.
+              We are building long-term relationships with private clinics, private hospitals and the suppliers who serve them, with one aim: to take sourcing work off clinics so their teams can spend more time on patient care.
             </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <dl className="grid grid-cols-2 gap-8 border-t border-white/15 pt-8">
-              <div><dt>Team members</dt><dd className="text-h1 mt-2 font-semibold text-on-dark">{stats.teamSize}</dd></div>
-              <div><dt>Countries</dt><dd className="text-h1 mt-2 font-semibold text-on-dark">{stats.countries}</dd></div>
-            </dl>
           </Reveal>
         </div>
       </section>
 
       <section className="chapter text-center">
         <div className="container-content">
-          <h2 className="text-h2 mx-auto max-w-[18ch]">See how we can help your facility.</h2>
+          <h2 className="text-h2 mx-auto max-w-[18ch]">See how we can help your clinic.</h2>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <MagneticButton href="/contact/">Get a quote <Arrow /></MagneticButton>
+            <MagneticButton href="/contact/">Request quotes <Arrow /></MagneticButton>
             <MagneticButton href="/team/" variant="secondary">Meet the team</MagneticButton>
           </div>
         </div>
