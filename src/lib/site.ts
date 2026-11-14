@@ -1,3 +1,6 @@
+/** Prefix for files in /public, so images also work when the site is served from a sub-path. */
+export const asset = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+
 // Company facts in one place. Anything marked `confirm` must be verified before launch.
 export const site = {
   name: "Medixis",
@@ -127,10 +130,10 @@ export const faqs = [
 ];
 
 export const team = [
-  { name: "Jonas Jorgensen", role: "Founder & CEO", email: "jonas@medixisgroup.com", photo: "/images/jonas-jorgensen.webp" },
-  { name: "Noah Sigler", role: "Chief Operating Officer & Co-Founder", email: "n.sigler@medixisgroup.com", photo: "/images/noah-sigler.webp" },
-  { name: "Márk Kovácsevics", role: "European Partner", email: "mark@medixisgroup.com", photo: "/images/mark-kovacsevics.webp" },
-  { name: "Istishna Saleem", role: "Client Relations", email: "saleem@medixisgroup.com", photo: "/images/istishna-saleem.webp" },
+  { name: "Jonas Jorgensen", role: "Founder & CEO", email: "jonas@medixisgroup.com", photo: asset("/images/jonas-jorgensen.webp") },
+  { name: "Noah Sigler", role: "Chief Operating Officer & Co-Founder", email: "n.sigler@medixisgroup.com", photo: asset("/images/noah-sigler.webp") },
+  { name: "Márk Kovácsevics", role: "European Partner", email: "mark@medixisgroup.com", photo: asset("/images/mark-kovacsevics.webp") },
+  { name: "Istishna Saleem", role: "Client Relations", email: "saleem@medixisgroup.com", photo: asset("/images/istishna-saleem.webp") },
 ];
 
 export const story = [

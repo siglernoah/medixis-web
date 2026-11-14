@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHeader, { Chapter } from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { vetting } from "@/lib/site";
@@ -56,7 +57,7 @@ export default function Standards() {
       <Chapter id="data" eyebrow="Data" title="Your information stays yours.">
         <Reveal className="mt-10 grid gap-8 md:grid-cols-2 md:gap-16">
           <p className="text-lead md:col-start-2">
-            We only share the details a supplier needs to quote your request. Read our <a href="/privacy/" className="text-accent underline underline-offset-4">privacy policy</a> for the full picture.
+            We only share the details a supplier needs to quote your request. Read our <Link href="/privacy/" className="text-accent underline underline-offset-4">privacy policy</Link> for the full picture.
           </p>
         </Reveal>
       </Chapter>

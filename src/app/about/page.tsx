@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHeader, { Chapter } from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import MagneticButton, { Arrow } from "@/components/MagneticButton";
-import { mission, site, story, values, vision } from "@/lib/site";
+import { asset, mission, site, story, values, vision } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -22,7 +22,7 @@ export default function About() {
       <div className="container-content">
         <Reveal className="aspect-[4/5] overflow-hidden rounded-[var(--radius-panel)] md:aspect-[16/9]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/team-meeting.webp" alt="The Medixis team discussing company strategy around a meeting table" className="h-full w-full object-cover object-[50%_40%]" />
+          <img src={asset("/images/team-meeting.webp")} alt="The Medixis team discussing company strategy around a meeting table" className="h-full w-full object-cover object-[50%_40%]" />
         </Reveal>
       </div>
 
