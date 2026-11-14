@@ -143,6 +143,9 @@ export const categories = [
   { title: "Consumables & smaller items", body: "Everyday clinical supplies and smaller devices, not only large equipment." },
 ];
 
+// Equipment types used by the homepage quick request card and category pills.
+export const equipmentTypes = ["Ultrasound", "Patient monitoring", "Sterilisation", "Dental", "Laboratory", "Furniture & beds", "Other"];
+
 export const faqs = [
   {
     q: "Why is this free?",

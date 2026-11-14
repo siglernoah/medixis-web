@@ -7,7 +7,8 @@ import Reveal from "@/components/Reveal";
 import Faq from "@/components/Faq";
 import SplitFree from "@/components/home/SplitFree";
 import MagneticButton, { Arrow } from "@/components/MagneticButton";
-import { audiences, categories, faqs, vetting } from "@/lib/site";
+import StartRequest from "@/components/home/StartRequest";
+import { audiences, categories, equipmentTypes, faqs, vetting } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Medixis — Better equipment quotes. Free for clinics." },
@@ -29,6 +30,12 @@ const freePoints = [
   { title: "Suppliers pay us, not you", body: "When a purchase is completed, the supplier pays Medixis a commission. Clinics never pay us anything." },
   { title: "Options chosen on fit", body: "We put forward options based on what suits your clinic: price, warranty, service and delivery." },
   { title: "You make the final decision", body: "You compare the quotes and choose. If ours don’t beat what you already have, you’ve lost nothing." },
+];
+
+const proofPoints = [
+  "Suppliers checked for registration and certifications",
+  "Side-by-side quote comparison",
+  "One named contact, reply within 1 working day",
 ];
 
 export default function Home() {
@@ -202,20 +209,43 @@ export default function Home() {
       </section>
       */}
 
-      {/* 8 — FINAL CTA */}
-      <section aria-labelledby="cta" className="relative overflow-hidden py-[var(--spacing-chapter)]">
+      {/* 8 — CLOSING: value proposition + quick request */}
+      <section aria-labelledby="cta" className="py-[clamp(4.5rem,9vw,7.5rem)]">
         <div className="container-content">
-          <Reveal>
-            <p className="eyebrow">Free for clinics. Suppliers pay us, not you.</p>
-            <h2 id="cta" className="mt-6 text-[clamp(3.5rem,11vw,10.5rem)] leading-[0.92] tracking-[var(--tracking-display)] text-ink">Request<br />quotes.</h2>
-            <div className="mt-12 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-              <p className="max-w-md text-lead text-body">Tell us what your clinic needs. There&rsquo;s no obligation, and you make the final choice.</p>
-              <div className="flex flex-wrap gap-3">
-                <MagneticButton href="/contact/">Request quotes <Arrow /></MagneticButton>
-                <MagneticButton href="/suppliers/" variant="secondary">I&rsquo;m a supplier</MagneticButton>
+          <div className="grid items-start gap-12 lg:grid-cols-[55fr_45fr] lg:gap-16">
+            <Reveal>
+              <p className="eyebrow">Serving private clinics in Europe and Africa.</p>
+              <h2 id="cta" className="mt-5 max-w-[22ch] text-[clamp(2.25rem,3.6vw,3.5rem)] leading-[1.08] tracking-[var(--tracking-heading)] text-ink">
+                Medical equipment for private clinics, sourced and compared for you.
+              </h2>
+              <p className="text-lead mt-6 max-w-[36rem] text-body">
+                Tell us what you need. We find vetted suppliers, compare quotes, and you choose. Free for clinics &mdash; suppliers pay us only when a deal closes.
+              </p>
+              <ul className="mt-8 space-y-3" aria-label="What you get">
+                {proofPoints.map((p) => (
+                  <li key={p} className="flex items-start gap-3 text-ink">
+                    <svg aria-hidden="true" viewBox="0 0 20 20" className="mt-1 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="10" cy="10" r="8.5" strokeWidth="1.5" />
+                      <path d="M6.5 10.2l2.4 2.4 4.6-5" />
+                    </svg>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <MagneticButton href="/contact/" className="w-full justify-center sm:w-auto">Request quotes <Arrow /></MagneticButton>
+                <MagneticButton href="/suppliers/" variant="secondary" className="w-full justify-center sm:w-auto">I&rsquo;m a supplier</MagneticButton>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <StartRequest />
+            </Reveal>
+          </div>
+          <ul className="mt-14 flex flex-wrap gap-2" aria-label="Equipment we source">
+            {equipmentTypes.filter((t) => t !== "Other").map((t) => (
+              <li key={t} className="rounded-full border border-ink/15 px-4 py-2 text-small text-body">{t}</li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

@@ -12,7 +12,7 @@ export default function SplitFree() {
     transition: { duration: 0.8, ease },
   });
   return (
-    <div className="grid md:grid-cols-2" aria-label="Who pays">
+    <div className="grid overflow-hidden md:grid-cols-2" aria-label="Who pays">
       <motion.div {...side(-60)} className="on-light flex min-h-[60svh] flex-col justify-between bg-white p-8 text-ink md:p-14 lg:p-20">
         <p className="text-small font-semibold text-accent">What clinics pay Medixis</p>
         <TypedFee />
