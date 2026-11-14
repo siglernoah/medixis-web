@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ease } from "@/lib/motion";
+import TypedFee from "./TypedFee";
 
 // Signature moment #2: the business model as a split screen. Halves slide in from opposite sides.
 export default function SplitFree() {
@@ -14,7 +15,7 @@ export default function SplitFree() {
     <div className="grid md:grid-cols-2" aria-label="Who pays">
       <motion.div {...side(-60)} className="on-light flex min-h-[60svh] flex-col justify-between bg-white p-8 text-ink md:p-14 lg:p-20">
         <p className="text-small font-semibold text-accent">What clinics pay Medixis</p>
-        <p className="font-serif text-[clamp(4rem,10vw,9.5rem)] leading-[0.9] tracking-[var(--tracking-display)]">Nothing.</p>
+        <TypedFee />
         <p className="max-w-sm font-semibold">No fee, no subscription, no obligation.</p>
       </motion.div>
       <motion.div {...side(60)} className="flex min-h-[60svh] flex-col justify-between border border-white/15 p-8 text-on-dark-muted md:p-14 lg:p-20">
