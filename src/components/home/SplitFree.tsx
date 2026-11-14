@@ -1,0 +1,27 @@
+"use client";
+import { motion } from "framer-motion";
+import { ease } from "@/lib/motion";
+
+// Signature moment #2: the business model as a split screen. Halves slide in from opposite sides.
+export default function SplitFree() {
+  const side = (from: number) => ({
+    initial: { opacity: 0, x: from },
+    whileInView: { opacity: 1, x: 0 },
+    viewport: { once: true, amount: 0.4 },
+    transition: { duration: 0.8, ease },
+  });
+  return (
+    <div className="grid md:grid-cols-2" aria-label="Who pays">
+      <motion.div {...side(-60)} className="flex min-h-[60svh] flex-col justify-between bg-turquoise p-8 text-ink md:p-14 lg:p-20">
+        <p className="text-small font-semibold">What clinics pay Medixis</p>
+        <p className="text-[clamp(4rem,10vw,9.5rem)] font-semibold leading-[0.9] tracking-[var(--tracking-display)]">Nothing.</p>
+        <p className="max-w-sm font-semibold">No fee, no subscription, no obligation.</p>
+      </motion.div>
+      <motion.div {...side(60)} className="on-dark flex min-h-[60svh] flex-col justify-between bg-ink-raised p-8 text-on-dark-muted md:p-14 lg:p-20">
+        <p className="text-small font-semibold text-turquoise">Who pays us</p>
+        <p className="text-[clamp(2.5rem,4.6vw,4.5rem)] font-semibold leading-[0.95] tracking-[var(--tracking-display)] text-white">Suppliers, when a deal completes.</p>
+        <p className="max-w-sm">A commission on completed purchases. That is how we can do the legwork for you for free.</p>
+      </motion.div>
+    </div>
+  );
+}

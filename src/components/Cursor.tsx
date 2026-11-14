@@ -39,7 +39,7 @@ export default function Cursor() {
     <div
       ref={ref}
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-[60] hidden h-8 w-8 rounded-full border border-accent/70 opacity-0 mix-blend-multiply transition-opacity duration-300 [@media(pointer:fine)]:block"
+      className="pointer-events-none fixed left-0 top-0 z-[60] hidden h-8 w-8 rounded-full border border-turquoise opacity-0 transition-opacity duration-300 [@media(pointer:fine)]:block"
     />
   );
 }

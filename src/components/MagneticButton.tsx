@@ -6,14 +6,16 @@ import { useRef } from "react";
 type Props = {
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "light";
+  variant?: "primary" | "secondary" | "light" | "bright" | "ghost";
   className?: string;
 };
 
 const styles = {
-  primary: "bg-ink text-white hover:bg-accent",
+  primary: "bg-ink text-white hover:bg-accent-strong",
   secondary: "border border-ink/15 text-ink hover:border-ink/40",
-  light: "bg-white text-ink hover:bg-accent-soft",
+  light: "bg-white text-ink hover:bg-turquoise",
+  bright: "bg-turquoise text-ink hover:bg-white",
+  ghost: "border border-white/25 text-white hover:border-white/60",
 };
 
 const MotionLink = motion.create(Link);

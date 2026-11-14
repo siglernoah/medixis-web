@@ -26,38 +26,38 @@ const cols = [
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-line bg-mist">
+    <footer className="on-dark bg-ink text-on-dark-muted">
       <div className="container-content grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <Logo />
-          <p className="mt-4 max-w-xs text-small text-muted">{site.description}</p>
+          <Logo dark />
+          <p className="mt-4 max-w-xs text-small text-on-dark-muted">{site.description}</p>
         </div>
         {cols.map((c) => (
           <nav key={c.title} aria-label={c.title}>
-            <h2 className="text-small font-semibold text-ink">{c.title}</h2>
+            <h2 className="text-small font-semibold text-white">{c.title}</h2>
             <ul className="mt-4 space-y-3 text-small">
               {c.links.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-muted hover:text-ink">{l.label}</Link>
+                  <Link href={l.href} className="hover:text-white">{l.label}</Link>
                 </li>
               ))}
             </ul>
           </nav>
         ))}
         <div>
-          <h2 className="text-small font-semibold text-ink">Contact</h2>
-          <ul className="mt-4 space-y-3 text-small text-muted">
-            <li><a href={`mailto:${site.email}`} className="hover:text-ink">{site.email}</a></li>
-            <li><a href={`tel:${site.phoneHref}`} className="hover:text-ink">{site.phone}</a></li>
+          <h2 className="text-small font-semibold text-white">Contact</h2>
+          <ul className="mt-4 space-y-3 text-small text-on-dark-muted">
+            <li><a href={`mailto:${site.email}`} className="hover:text-white">{site.email}</a></li>
+            <li><a href={`tel:${site.phoneHref}`} className="hover:text-white">{site.phone}</a></li>
             <li>{site.city}, {site.country}</li>
           </ul>
         </div>
       </div>
-      <div className="container-content flex flex-col gap-3 border-t border-line py-6 text-small text-muted md:flex-row md:justify-between">
+      <div className="container-content flex flex-col gap-3 border-t border-white/10 py-6 text-small text-on-dark-muted md:flex-row md:justify-between">
         <p>© {year} {site.legalName}, {site.legalNote}. All rights reserved.</p>
         <ul className="flex gap-6">
-          <li><Link href="/privacy/" className="hover:text-ink">Privacy policy</Link></li>
-          <li><a href={site.clientLogin} className="hover:text-ink">Client log in</a></li>
+          <li><Link href="/privacy/" className="hover:text-white">Privacy policy</Link></li>
+          <li><a href={site.clientLogin} className="hover:text-white">Client log in</a></li>
         </ul>
       </div>
     </footer>

@@ -11,8 +11,8 @@ import { useEffect, useRef } from "react";
  */
 type Props = { progressRef: React.RefObject<number> };
 
-const ACCENT = [10, 110, 106];
-const INK = [11, 13, 16];
+const ACCENT = [0, 166, 188]; // logo turquoise
+const INK = [190, 205, 222]; // pale blue-grey on navy
 
 function easeInOut(t: number) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;

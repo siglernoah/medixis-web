@@ -36,50 +36,50 @@ export default function Hero() {
   const hintOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
 
   return (
-    <section ref={ref} aria-labelledby="hero-title" className={reduce ? "relative" : "relative h-[230vh]"}>
+    <section ref={ref} aria-labelledby="hero-title" className={`on-dark relative bg-ink ${reduce ? "" : "h-[230vh]"}`}>
       <div className={`${reduce ? "" : "sticky top-16"} flex h-[calc(100svh-4rem)] min-h-[560px] items-center overflow-hidden`}>
         {/* network canvas */}
-        <div className="absolute inset-0 opacity-40 md:opacity-100 lg:left-[38%]">
+        <div className="absolute inset-0 opacity-50 md:opacity-100 lg:left-[38%]">
           <HeroNetwork progressRef={progress} />
         </div>
 
         <div className="container-content relative grid">
           {/* Intro */}
           <motion.div style={reduce ? undefined : { opacity: introOpacity, y: introY }} className="col-start-1 row-start-1 max-w-[46rem]">
-            <p className="rise eyebrow" style={{ animationDelay: "0.1s" }}>For private clinics and hospitals</p>
-            <h1 id="hero-title" className="rise mt-5 text-[clamp(2.75rem,6vw,6rem)] font-semibold leading-[1.02] tracking-[var(--tracking-display)] text-ink" style={{ animationDelay: "0.2s" }}>
+            <p className="rise text-small font-semibold text-turquoise" style={{ animationDelay: "0.1s" }}>For private clinics and hospitals</p>
+            <h1 id="hero-title" className="rise mt-5 text-[clamp(2.75rem,6vw,6rem)] font-semibold leading-[1.02] tracking-[var(--tracking-display)] text-white" style={{ animationDelay: "0.2s" }}>
               Better equipment quotes.
               <br />
-              <span className="text-accent">Free for clinics.</span>
+              <span className="text-turquoise">Free for clinics.</span>
             </h1>
-            <p className="rise mt-8 text-[clamp(1.375rem,2.2vw,1.75rem)] font-semibold leading-snug tracking-[var(--tracking-heading)] text-ink" style={{ animationDelay: "0.3s" }}>
+            <p className="rise mt-8 text-[clamp(1.375rem,2.2vw,1.75rem)] font-semibold leading-snug tracking-[var(--tracking-heading)] text-white" style={{ animationDelay: "0.3s" }}>
               Suppliers pay us, not you.
             </p>
-            <p className="rise text-lead mt-4 max-w-[34rem] text-body" style={{ animationDelay: "0.38s" }}>
+            <p className="rise text-lead mt-4 max-w-[34rem] text-on-dark-muted" style={{ animationDelay: "0.38s" }}>
               Tell us what your clinic needs. We find and vet suppliers, collect their quotes, and you choose. No fee and no obligation.
             </p>
             <div className="rise mt-10 flex flex-wrap gap-3" style={{ animationDelay: "0.5s" }}>
-              <MagneticButton href="/contact/">Request quotes <Arrow /></MagneticButton>
-              <MagneticButton href="#how-it-works" variant="secondary">How it works</MagneticButton>
+              <MagneticButton href="/contact/" variant="bright">Request quotes <Arrow /></MagneticButton>
+              <MagneticButton href="#how-it-works" variant="ghost">How it works</MagneticButton>
             </div>
           </motion.div>
 
           {/* Outro — appears as the network becomes the X */}
           {!reduce && (
             <motion.div style={{ opacity: outroOpacity, y: outroY }} className="col-start-1 row-start-1 self-center" aria-hidden="true">
-              <p className="text-h1 max-w-[18ch] font-semibold text-ink">
+              <p className="text-h1 max-w-[18ch] font-semibold text-white">
                 We do the legwork.
                 <br />
-                <span className="text-accent">You make the choice.</span>
+                <span className="text-turquoise">You make the choice.</span>
               </p>
             </motion.div>
           )}
         </div>
 
         {!reduce && (
-          <motion.div style={{ opacity: hintOpacity }} aria-hidden="true" className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-small text-muted md:flex">
+          <motion.div style={{ opacity: hintOpacity }} aria-hidden="true" className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-small text-on-dark-muted md:flex">
             Scroll
-            <span className="h-10 w-px bg-gradient-to-b from-muted to-transparent" />
+            <span className="h-10 w-px bg-gradient-to-b from-on-dark-muted to-transparent" />
           </motion.div>
         )}
       </div>

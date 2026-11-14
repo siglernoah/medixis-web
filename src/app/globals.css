@@ -6,17 +6,19 @@
    (src/lib/motion.ts) mirror the --ease / --dur-* tokens below.
    ========================================================================== */
 @theme {
-  /* Color — neutral system + ONE accent (deep clinical teal) */
-  --color-ink: #0b0d10;          /* headings, dark chapters */
+  /* Color — brand navy + ONE accent hue (the logo's turquoise) */
+  --color-ink: #060D17;          /* brand navy (from the logo): headings, dark chapters */
+  --color-ink-raised: #0f1d2e;   /* panels on navy */
+  --color-turquoise: #00A6BC;    /* the logo's turquoise — on navy only (6.7:1), never as text on white */
   --color-body: #3c4148;         /* body text — 10.4:1 on white */
   --color-muted: #5f6670;        /* secondary text — 5.9:1 on white */
   --color-line: #e5e7eb;
   --color-surface: #ffffff;
   --color-mist: #f5f5f7;         /* alternate chapter background */
-  --color-accent: #0a6e6a;       /* 6.1:1 on white — links, CTAs, key figures */
-  --color-accent-strong: #08524f;/* hover */
-  --color-accent-soft: #e6f2f1;  /* tinted backgrounds */
-  --color-accent-on-dark: #6fd6cf; /* accent used on ink — 11:1 */
+  --color-accent: #007285;       /* deep turquoise, 5.6:1 on white — links and key text on light */
+  --color-accent-strong: #005866;/* hover */
+  --color-accent-soft: #e0f4f7;  /* tinted backgrounds */
+  --color-accent-on-dark: #00A6BC; /* turquoise on navy — 6.7:1 */
   --color-on-dark: #f5f5f7;
   --color-on-dark-muted: #a1a8b3; /* 8:1 on ink */
 
@@ -117,8 +119,8 @@ p { text-wrap: pretty; }
 
 /* Placeholder content that must be supplied/confirmed before launch */
 .todo {
-  background: repeating-linear-gradient(-45deg, transparent 0 6px, rgb(10 110 106 / 0.06) 6px 12px);
-  outline: 1px dashed rgb(10 110 106 / 0.5);
+  background: repeating-linear-gradient(-45deg, transparent 0 6px, rgb(0 114 133 / 0.06) 6px 12px);
+  outline: 1px dashed rgb(0 114 133 / 0.5);
   outline-offset: 2px;
   border-radius: 4px;
   padding-inline: 0.2em;
@@ -127,6 +129,13 @@ p { text-wrap: pretty; }
 /* Hero entrance — pure CSS so it paints before JS hydrates (protects LCP) */
 @keyframes rise { from { opacity: 0.01; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 .rise { animation: rise var(--dur-slow) var(--ease-out-premium) both; }
+
+/* Category marquee — pure CSS; reduced motion stops it (global rule below) */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { animation: marquee 60s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+.text-outline { -webkit-text-fill-color: transparent; -webkit-text-stroke: 1.5px currentColor; }
+@media (prefers-reduced-motion: reduce) { .marquee { animation: none !important; } }
 
 /* Skip link */
 .skip-link {
