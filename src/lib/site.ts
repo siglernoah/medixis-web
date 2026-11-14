@@ -155,7 +155,7 @@ export const story = [
 ];
 
 // Where Medixis works: shown when a region on the About-page globe is clicked.
-// Figures supplied by Medixis (Nov 2026). Add sources for each figure before launch.
+// Figures supplied by Medixis (Nov 2026), with the sources Medixis provided.
 export type RegionId = "denmark" | "eastern-europe" | "morocco" | "nigeria";
 export const regions: {
   id: RegionId;
@@ -165,6 +165,7 @@ export const regions: {
   radius: number;           // angular radius in degrees that should fill the view
   countryIds: string[];     // ISO 3166 numeric codes, as used by world-atlas
   text: string[];
+  sources: { label: string; url: string; note: string }[];
 }[] = [
   {
     id: "denmark",
@@ -176,6 +177,9 @@ export const regions: {
     text: [
       "Denmark’s private hospital sector is small but growing: the hospitals industry has grown at a CAGR of 12.2% between 2021 and 2026, as private providers take on patients the public system can’t treat quickly.",
       "There’s less need for help with sourcing than in emerging markets, but Denmark is where our relationships are strongest. We’ve been operating there since April 2026.",
+    ],
+    sources: [
+      { label: "IBISWorld – Hospitals in Denmark", url: "https://www.ibisworld.com/denmark/industry/hospitals/200324/", note: "12.2% CAGR 2021–2026; private hospitals taking on patients the public system can’t treat quickly" },
     ],
   },
   {
@@ -189,6 +193,10 @@ export const regions: {
       "More and more people in the region are paying for private care. Poland’s private healthcare market was close to PLN 90 billion in 2024 and growing by double digits, and demand for private care in Romania has kept rising with a growing, wealthier middle class.",
       "That means a large pool of private clinics we could sell to, and our Romanian supplier gives us a strong position on the supply side. We started looking at the region in November 2026.",
     ],
+    sources: [
+      { label: "PZU Group Annual Report 2025 – Polish health care sector", url: "https://annualreport2025.pzu.pl/en/about-pzu-group/environment/polish-health-care-sector-compared-to-europe/", note: "Poland: about PLN 90B private market in 2024, double-digit growth (figures from PMR Market Experts)" },
+      { label: "bne IntelliNews – The new No. 1 in Romania’s private medical sector", url: "https://intellinews.com/the-new-no-1-in-romania-s-private-medical-sector-207709", note: "Romania: demand rising with a wealthier middle class" },
+    ],
   },
   {
     id: "morocco",
@@ -201,6 +209,10 @@ export const regions: {
       "Morocco has more than 400 private clinics, mostly in the Casablanca-Settat and Rabat-Salé-Kénitra regions, and the private sector is growing alongside government investment in healthcare.",
       "It’s our closest market to a first deal, and we’re working with a Chinese supplier that has a local distributor. One caveat: importing or selling used or refurbished medical equipment is now illegal there, so the refurbished side of the business won’t work in Morocco. We’ve been looking into Morocco since June 2026.",
     ],
+    sources: [
+      { label: "U.S. ITA – Morocco Country Commercial Guide: Healthcare", url: "https://www.trade.gov/country-commercial-guides/morocco-healthcare", note: "400+ private clinics, Casablanca and Rabat regions" },
+      { label: "Mobility Foresights – Morocco Medical Devices Market 2024–2030", url: "https://mobilityforesights.com/product/morocco-medical-devices-market", note: "Ban on importing or selling used or refurbished equipment" },
+    ],
   },
   {
     id: "nigeria",
@@ -212,6 +224,11 @@ export const regions: {
     text: [
       "Nigeria has the largest medical device market in West Africa. It’s projected to grow from US$414.8 million in 2025 to US$632.48 million by 2030, and it relies mostly on imported devices, with China holding the largest share.",
       "Private hospitals and specialist clinics are Medixis’s main opening, because they often buy newer devices faster than public hospitals do. We’ve been looking into Nigeria since September 2026, with a partner on the ground covering the region.",
+    ],
+    sources: [
+      { label: "Statista data via BusinessDay – Nigeria leads West Africa’s medical device sector", url: "https://businessday.ng/?p=1113998", note: "US$414.8M in 2025 → US$632.48M by 2030" },
+      { label: "U.S. International Trade Administration – Healthcare Resource Guide: Nigeria", url: "https://www.trade.gov/healthcare-resource-guide-nigeria", note: "Import reliance; China’s dominant share" },
+      { label: "Nexdigm – Nigeria Medical Devices Industry", url: "https://www.nexdigm.com/market-research/insights/blog/nigeria-medical-devices-industry/", note: "Private hospitals buy newer devices faster" },
     ],
   },
 ];

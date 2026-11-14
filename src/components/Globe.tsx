@@ -21,9 +21,10 @@ const BASE_TILT = 24 * DEG;
 const NAV_H = 64;
 const FLY_MS = 2800, BACK_MS = 2000;
 
-// Navy palette
-const LINE = "150, 185, 230";
-const RIM = "120, 165, 225";
+// Cream globe with deep-navy linework (colours from the original medixisgroup.com)
+const LINE = "8, 23, 41";     // #081729 deep navy
+const INK = "8, 23, 41";
+const CREAM = "243, 239, 230"; // #f3efe6
 
 const P = {
   dk: [10.2, 56.16] as LonLat, pl: [21.01, 52.23] as LonLat, lv: [24.11, 56.95] as LonLat,
@@ -139,6 +140,13 @@ export default function Globe({
     let countries: Country[] = [];
     let waves: { lon: number; lat: number; ph: number }[] = [];
     let detailLoading = false;
+    const dotPattern = (gap: number, r: number, a: number) => {
+      const c = document.createElement("canvas"); c.width = c.height = gap;
+      const g = c.getContext("2d")!; g.fillStyle = `rgba(${INK}, ${a})`;
+      g.beginPath(); g.arc(gap / 2, gap / 2, r, 0, Math.PI * 2); g.fill();
+      return ctx.createPattern(c, "repeat")!;
+    };
+    const dots = dotPattern(5, 0.9, 0.85), dotsStrong = dotPattern(5, 1.15, 1);
 
     // ---------- view state
     let vw = window.innerWidth, vh = window.innerHeight, dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -212,7 +220,7 @@ export default function Globe({
       // halo
       if (farFade > 0) {
         const halo = ctx.createRadialGradient(cx, cy, R * 0.92, cx, cy, R * 1.22);
-        halo.addColorStop(0, `rgba(${RIM}, ${0.22 * farFade})`); halo.addColorStop(1, `rgba(${RIM}, 0)`);
+        halo.addColorStop(0, `rgba(${CREAM}, ${0.28 * farFade})`); halo.addColorStop(1, `rgba(${CREAM}, 0)`);
         ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(cx, cy, R * 1.22, 0, Math.PI * 2); ctx.fill();
       }
 
@@ -222,34 +230,43 @@ export default function Globe({
         for (const g of grat) polyline(g, new Path2D(), gB);
         for (const c of countries) polyline(c.line, new Path2D(), cB);
         ctx.lineWidth = 0.6;
-        ctx.strokeStyle = `rgba(${LINE}, ${0.1 * farFade})`; ctx.stroke(gB);
-        ctx.strokeStyle = `rgba(${LINE}, ${0.22 * farFade})`; ctx.stroke(cB);
+        ctx.strokeStyle = `rgba(${LINE}, ${0.07 * farFade})`; ctx.stroke(gB);
+        ctx.strokeStyle = `rgba(${LINE}, ${0.16 * farFade})`; ctx.stroke(cB);
       }
       const body = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.05, cx, cy, R);
-      body.addColorStop(0, "rgba(24, 56, 104, 0.78)");
-      body.addColorStop(0.7, "rgba(12, 32, 64, 0.82)");
-      body.addColorStop(1, "rgba(10, 26, 52, 0.9)");
+      body.addColorStop(0, "rgba(252, 250, 245, 0.9)");
+      body.addColorStop(0.7, "rgba(243, 239, 230, 0.92)");
+      body.addColorStop(1, "rgba(226, 219, 203, 0.95)");
       ctx.fillStyle = body; ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
-      if (farFade > 0) { ctx.strokeStyle = `rgba(${RIM}, ${0.6 * farFade})`; ctx.lineWidth = 1.2; ctx.stroke(); }
+      if (farFade > 0) { ctx.strokeStyle = `rgba(${CREAM}, ${0.9 * farFade})`; ctx.lineWidth = 1.2; ctx.stroke(); }
 
       // graticule (front)
       const gF = new Path2D();
       for (const g of grat) polyline(g, gF, null);
-      ctx.lineWidth = 0.6; ctx.strokeStyle = `rgba(${LINE}, 0.12)`; ctx.stroke(gF);
+      ctx.lineWidth = 0.6; ctx.strokeStyle = `rgba(${LINE}, 0.1)`; ctx.stroke(gF);
 
       // faint ocean waves
       if (waves.length) {
         const wF = new Path2D();
-        const pts = new Float32Array(9 * 3);
+        const N = 14, pts = new Float32Array((N + 1) * 3);
         for (const w of waves) {
-          for (let k = 0; k < 9; k++) {
-            const u = k / 8 - 0.5;
-            const v = toVec([w.lon + u * 7, w.lat + 0.45 * Math.sin(u * Math.PI * 3 + clock * 0.8 + w.ph)]);
-            pts[k * 3] = v[0]; pts[k * 3 + 1] = v[1]; pts[k * 3 + 2] = v[2];
+          // Each stroke has its own ~7 s cycle: it draws in from the left, drifts east,
+          // erases from the left, rests, then starts again.
+          const t = ((reduce ? 0.5 : clock / 7) + w.ph / 6.28) % 1;
+          const life = t / 0.8;
+          if (life >= 1) continue;
+          const head = Math.min(1, life * 2), tail = Math.max(0, life * 2 - 1);
+          if (head - tail < 0.02) continue;
+          const drift = (reduce ? 0 : life * 4) - 3.5;
+          let n = 0;
+          for (let k = 0; k <= N; k++) {
+            const u = tail + (head - tail) * (k / N);
+            const v = toVec([w.lon + drift + u * 7, w.lat + 0.4 * Math.sin(u * Math.PI * 3)]);
+            pts[n++] = v[0]; pts[n++] = v[1]; pts[n++] = v[2];
           }
           polyline(pts, wF, null);
         }
-        ctx.lineWidth = 0.8; ctx.lineCap = "round"; ctx.strokeStyle = `rgba(${LINE}, 0.11)`; ctx.stroke(wF);
+        ctx.lineWidth = 0.8; ctx.lineCap = "round"; ctx.strokeStyle = `rgba(${LINE}, 0.14)`; ctx.stroke(wF);
       }
 
       // countries (front); Medixis countries filled, selected region brightest
@@ -260,19 +277,19 @@ export default function Globe({
         else polyline(c.line, cF, null);
       }
       ctx.lineJoin = "round";
-      ctx.lineWidth = zoom > 3 ? 1 : 0.8; ctx.strokeStyle = `rgba(${LINE}, 0.7)`; ctx.stroke(cF);
+      ctx.lineWidth = zoom > 3 ? 1.1 : 0.8; ctx.strokeStyle = `rgba(${LINE}, 0.8)`; ctx.stroke(cF);
       regionPaths = [];
       ours.forEach((path, id) => {
         const sel = focusId === id && mode !== "normal";
-        ctx.fillStyle = `rgba(255, 255, 255, ${sel ? 0.2 : 0.12})`; ctx.fill(path);
-        ctx.lineWidth = sel ? 1.8 : 1.1; ctx.strokeStyle = "rgba(255, 255, 255, 0.9)"; ctx.stroke(path);
+        ctx.fillStyle = sel ? dotsStrong : dots; ctx.fill(path);   // Medixis countries are dotted
+        ctx.lineWidth = sel ? 1.8 : 1.2; ctx.strokeStyle = `rgba(${INK}, 0.95)`; ctx.stroke(path);
         regionPaths.push({ id, path });
       });
 
       // Eastern Europe ring (only at globe scale)
       if (zoom < 2.5) {
         const rF = new Path2D(); polyline(eeRing, rF, null);
-        ctx.setLineDash([3, 4]); ctx.lineWidth = 1.2; ctx.strokeStyle = `rgba(255, 255, 255, ${0.7 * farFade})`; ctx.stroke(rF); ctx.setLineDash([]);
+        ctx.setLineDash([3, 4]); ctx.lineWidth = 1.2; ctx.strokeStyle = `rgba(${INK}, ${0.7 * farFade})`; ctx.stroke(rF); ctx.setLineDash([]);
       }
 
       // links
@@ -280,16 +297,16 @@ export default function Globe({
       for (const a of mainArcs) polyline(a, mF, mB, true);
       for (const a of minorArcs) polyline(a, nF, nB, true);
       ctx.lineCap = "round";
-      ctx.lineWidth = 1; ctx.strokeStyle = `rgba(255, 255, 255, ${0.12 * farFade})`; ctx.stroke(mB); ctx.stroke(nB);
-      ctx.shadowColor = "rgba(255, 255, 255, 0.8)"; ctx.shadowBlur = 6;
-      ctx.lineWidth = 1.6; ctx.strokeStyle = "rgba(255, 255, 255, 0.92)"; ctx.stroke(mF);
-      ctx.lineWidth = 0.9; ctx.strokeStyle = "rgba(255, 255, 255, 0.7)"; ctx.stroke(nF);
+      ctx.lineWidth = 1; ctx.strokeStyle = `rgba(${INK}, ${0.12 * farFade})`; ctx.stroke(mB); ctx.stroke(nB);
+      ctx.shadowColor = `rgba(${INK}, 0.35)`; ctx.shadowBlur = 5;
+      ctx.lineWidth = 1.6; ctx.strokeStyle = `rgba(${INK}, 0.9)`; ctx.stroke(mF);
+      ctx.lineWidth = 0.9; ctx.strokeStyle = `rgba(${INK}, 0.7)`; ctx.stroke(nF);
       if (!reduce) {
         mainArcs.forEach((a, k) => {
           const n = a.length / 3 - 1, i = Math.round(((clock * 0.22 + k * 0.27) % 1) * n) * 3;
           pr(a[i], a[i + 1], a[i + 2], tmp);
           const dx = tmp[0] - cx, dy = tmp[1] - cy;
-          if (tmp[2] >= 0 || dx * dx + dy * dy > R * R) { ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 2, 0, Math.PI * 2); ctx.fill(); }
+          if (tmp[2] >= 0 || dx * dx + dy * dy > R * R) { ctx.fillStyle = `rgb(${INK})`; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 2, 0, Math.PI * 2); ctx.fill(); }
         });
       }
       ctx.shadowBlur = 0;
@@ -300,26 +317,28 @@ export default function Globe({
       POINTS.forEach((p, k) => {
         const v = pointVecs[k]; pr(v[0], v[1], v[2], tmp);
         if (tmp[2] < 0) {
-          if (farFade > 0) { ctx.fillStyle = `rgba(255, 255, 255, ${0.18 * farFade})`; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 2, 0, Math.PI * 2); ctx.fill(); }
+          if (farFade > 0) { ctx.fillStyle = `rgba(${INK}, ${0.18 * farFade})`; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], 2, 0, Math.PI * 2); ctx.fill(); }
           return;
         }
         const r = p.hub ? 4.5 : p.small ? 2.6 : 3.6;
         const g = ctx.createRadialGradient(tmp[0], tmp[1], 0, tmp[0], tmp[1], r * 4);
-        g.addColorStop(0, "rgba(255, 255, 255, 0.55)"); g.addColorStop(1, "rgba(255, 255, 255, 0)");
+        g.addColorStop(0, `rgba(${INK}, 0.3)`); g.addColorStop(1, `rgba(${INK}, 0)`);
         ctx.fillStyle = g; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], r * 4, 0, Math.PI * 2); ctx.fill();
-        ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], r, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = `rgb(${INK})`; ctx.beginPath(); ctx.arc(tmp[0], tmp[1], r, 0, Math.PI * 2); ctx.fill();
         if (p.hub && !reduce) {
           const ph = (clock * 0.6) % 1;
-          ctx.strokeStyle = `rgba(255, 255, 255, ${0.6 * (1 - ph)})`; ctx.lineWidth = 1;
+          ctx.strokeStyle = `rgba(${INK}, ${0.6 * (1 - ph)})`; ctx.lineWidth = 1;
           ctx.beginPath(); ctx.arc(tmp[0], tmp[1], r + ph * 14, 0, Math.PI * 2); ctx.stroke();
         }
         // Small country labels only once zoomed into their region; main labels at globe scale.
         const showLabel = p.small ? zoom > 2.5 && focusId === p.region : tmp[2] > 0.15;
         if (showLabel) {
           ctx.font = `500 ${p.small ? fs : fs}px "IBM Plex Sans", system-ui, sans-serif`;
-          ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, tmp[2] * 2)})`;
+          ctx.fillStyle = `rgba(${INK}, ${Math.min(1, tmp[2] * 2)})`;
           ctx.textAlign = p.left ? "right" : "left";
-          ctx.fillText(p.label, p.left ? tmp[0] - r - 7 : tmp[0] + r + 7, tmp[1]);
+          const lx = p.left ? tmp[0] - r - 7 : tmp[0] + r + 7;
+          ctx.lineWidth = 3; ctx.lineJoin = "round"; ctx.strokeStyle = `rgba(${CREAM}, 0.9)`; ctx.strokeText(p.label, lx, tmp[1]);
+          ctx.fillText(p.label, lx, tmp[1]);
           ctx.textAlign = "left";
         }
       });
@@ -327,7 +346,8 @@ export default function Globe({
         pr(eeLabelAt[0], eeLabelAt[1], eeLabelAt[2], tmp);
         if (tmp[2] > 0.15) {
           ctx.font = `500 ${fs}px "IBM Plex Sans", system-ui, sans-serif`;
-          ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, tmp[2] * 2) * farFade})`;
+          ctx.fillStyle = `rgba(${INK}, ${Math.min(1, tmp[2] * 2) * farFade})`;
+          ctx.lineWidth = 3; ctx.lineJoin = "round"; ctx.strokeStyle = `rgba(${CREAM}, ${0.9 * farFade})`; ctx.strokeText("Eastern Europe", tmp[0], tmp[1]);
           ctx.fillText("Eastern Europe", tmp[0], tmp[1]);
         }
       }

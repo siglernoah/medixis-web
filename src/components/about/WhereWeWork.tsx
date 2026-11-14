@@ -118,13 +118,25 @@ export default function WhereWeWork() {
             pointerEvents: panelOn ? "auto" : "none",
           }}
         >
-          <div className="on-dark max-h-[55svh] overflow-y-auto rounded-[var(--radius-panel)] border border-white/15 bg-ink/80 p-6 text-on-dark-muted backdrop-blur-md lg:max-h-[80svh] lg:p-8">
+          <div className="on-dark max-h-[55svh] overflow-y-auto rounded-[var(--radius-panel)] border border-white/10 bg-ink/95 p-6 text-on-dark-muted shadow-[0_20px_60px_rgba(8,23,41,0.35)] backdrop-blur-md lg:max-h-[80svh] lg:p-8">
             <p className="eyebrow">Where we work</p>
             <h3 id="region-title" ref={heading} tabIndex={-1} className="mt-3 text-[clamp(2rem,3.4vw,3rem)] leading-tight text-white outline-none">{region.name}</h3>
             <div className="mt-5 space-y-4 text-[1rem] leading-relaxed">
               {region.text.map((t, i) => <p key={i}>{t}</p>)}
             </div>
-            <p className="todo mt-5 inline-block text-small">Add a source for each figure before launch.</p>
+            <div className="mt-6 border-t border-white/15 pt-5">
+              <h4 className="text-small font-semibold text-white" style={{ fontFamily: "var(--font-sans)" }}>Sources</h4>
+              <ul className="mt-3 space-y-3 text-small">
+                {region.sources.map((src) => (
+                  <li key={src.url}>
+                    <a href={src.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-turquoise underline decoration-turquoise/40 underline-offset-4 hover:decoration-turquoise">
+                      {src.label}<span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                    <span className="block text-on-dark-muted">{src.note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <div className="mt-6 flex flex-wrap gap-2 border-t border-white/15 pt-5" aria-label="Other regions">
               {regions.filter((r) => r.id !== region.id).map((r) => (
                 <button key={r.id} type="button" onClick={() => setSelected(r.id)} className="rounded-full border border-white/20 px-4 py-2 text-small text-white hover:border-white/60">
