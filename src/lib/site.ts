@@ -19,6 +19,12 @@ export const site = {
   country: "Denmark",
   countryCode: "DK",
   clientLogin: "https://medixisgroup.com/partner-portal",
+  registration: {
+    state: "Wyoming, USA",
+    filingId: "2026-002124541",
+    office: "30 N Gould St Ste R, Sheridan, WY 82801",
+  },
+  legalRepresentative: "Jonas Jorgensen, CEO",
   social: [
     { name: "LinkedIn", url: "https://www.linkedin.com/company/medixis/posts/" },
     { name: "Instagram", url: "https://www.instagram.com/medixisgroup/" },
@@ -151,6 +157,21 @@ export const whoWeAre = {
     "Medixis is founder-led and works as a distributed team, headquartered in Aarhus, Denmark. Our founders, Jonas Jorgensen and Noah Sigler, are directly involved in the work, so clinics deal with the people accountable for their requests.",
   ],
 };
+
+// From the Medixis Company Profile (October 2026), figures removed.
+export const whyMedixis = [
+  { title: "No request left unanswered", body: "We take on the challenging requests too. Through our supplier network and a solution-oriented team, we work to make even complex procurement requirements possible." },
+  { title: "One dedicated coordinator", body: "One person who knows your clinic, follows your request and answers your questions." },
+  { title: "Vetted EU + global network", body: "Suppliers matched to your specifications, giving you more options than going it alone." },
+  { title: "Transparent, itemised quotes", body: "Pricing, specifications and lead times side by side, with payment terms confirmed in writing." },
+  { title: "Easy to start", body: "No account or portal needed. Send a request with spec sheets or documents attached." },
+];
+
+export const threeSides = [
+  { title: "Clinics & hospitals", body: "Private clinics and private hospitals tell us what they need and get vetted options to compare, free of charge.", href: "/contact/", cta: "Request quotes" },
+  { title: "Suppliers", body: "Vetted suppliers reach qualified private-clinic buyers and pay a commission only on completed deals.", href: "/suppliers/", cta: "For suppliers" },
+  { title: "Partners", body: "Our international partners are the third side of the Medixis model. Their local insight helps us understand developments on the ground, respond quickly and give every client attentive service.", href: "/partners/", cta: "Partner programme" },
+];
 
 export const story = [
   "Medixis was founded on a simple belief: healthcare supply chains can and should work better. We set out to make medical equipment sourcing more efficient, reliable and transparent, building relationships founded on trust and accountability.",

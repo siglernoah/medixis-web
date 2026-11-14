@@ -86,7 +86,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="container-content flex flex-col gap-3 border-t border-white/10 py-6 text-small text-on-dark-muted md:flex-row md:justify-between">
-        <p>© {year} {site.legalName}, {site.legalNote}. All rights reserved.</p>
+        <div className="space-y-1">
+          <p>© {year} {site.legalName} · Registered in {site.registration.state} · Filing ID {site.registration.filingId}</p>
+          <p>Registered office: {site.registration.office}</p>
+        </div>
         <ul className="flex gap-6">
           <li><Link href="/privacy/" className="hover:text-white">Privacy policy</Link></li>
           <li><a href={site.clientLogin} className="hover:text-white">Client log in</a></li>
