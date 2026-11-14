@@ -26,7 +26,7 @@ const cols = [
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="on-dark bg-ink text-on-dark-muted">
+    <footer className="navy on-dark border-t border-white/10">
       <div className="container-content grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
           <Logo dark />

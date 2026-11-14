@@ -11,9 +11,9 @@ type Props = {
 };
 
 const styles = {
-  primary: "bg-ink text-white hover:bg-accent-strong",
+  primary: "bg-ink text-white hover:bg-ink/85",
   secondary: "border border-ink/15 text-ink hover:border-ink/40",
-  light: "bg-white text-ink hover:bg-turquoise",
+  light: "on-light bg-white text-ink hover:bg-white/85",
   bright: "bg-turquoise text-ink hover:bg-white",
   ghost: "border border-white/25 text-white hover:border-white/60",
 };

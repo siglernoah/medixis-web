@@ -22,8 +22,9 @@
   --color-on-dark: #f5f5f7;
   --color-on-dark-muted: #a1a8b3; /* 8:1 on ink */
 
-  /* Type — Inter, two weights per section (400 / 600) */
-  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Type — matches the original medixisgroup.com: Fraunces headings, IBM Plex Sans text */
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-serif: "Fraunces Variable", "Fraunces", "Iowan Old Style", Georgia, serif;
   --text-display: clamp(3rem, 8vw, 8rem);
   --text-h1: clamp(2.5rem, 5vw, 5rem);
   --text-h2: clamp(2rem, 3.5vw, 3.5rem);
@@ -31,8 +32,8 @@
   --text-lead: clamp(1.125rem, 1.4vw, 1.375rem);
   --text-body: 1.125rem;
   --text-small: 0.875rem;
-  --tracking-display: -0.035em;
-  --tracking-heading: -0.025em;
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.01em;
 
   /* Spacing — 4px base; chapters breathe */
   --spacing: 0.25rem;
@@ -67,7 +68,7 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: clip;
 }
-h1, h2, h3, h4 { color: var(--color-ink); font-weight: 600; text-wrap: balance; }
+h1, h2, h3, h4 { color: var(--color-ink); font-family: var(--font-serif); font-weight: 560; text-wrap: balance; }
 p { text-wrap: pretty; }
 
 :focus-visible {
@@ -129,6 +130,18 @@ p { text-wrap: pretty; }
 /* Hero entrance — pure CSS so it paints before JS hydrates (protects LCP) */
 @keyframes rise { from { opacity: 0.01; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 .rise { animation: rise var(--dur-slow) var(--ease-out-premium) both; }
+
+/* ---------- Two surfaces only: white, and navy with a soft turquoise fade ---------- */
+.navy {
+  background-color: var(--color-ink);
+  background-image: radial-gradient(60rem 36rem at 100% 0%, rgb(0 166 188 / 0.16), transparent 60%);
+  color: var(--color-on-dark-muted);
+}
+/* Anything on navy reads light. Panels that stay white inside navy use .on-light. */
+.on-dark :is(h1, h2, h3, h4, .text-ink):not(.on-light, .on-light *) { color: #fff; }
+.on-dark :is(.text-muted, .text-body):not(.on-light *) { color: var(--color-on-dark-muted); }
+.on-dark :is(.text-accent, .eyebrow):not(.on-light *) { color: var(--color-turquoise); }
+.on-dark :is(.border-ink\/15, .border-ink\/10, .border-line):not(.on-light *) { border-color: rgb(255 255 255 / 0.15); }
 
 /* Category marquee — pure CSS; reduced motion stops it (global rule below) */
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }

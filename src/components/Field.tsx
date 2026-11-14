@@ -38,7 +38,7 @@ export function TextArea({ label, name, required, className = "", hint }: Common
 
 export function SubmitButton({ children }: { children: React.ReactNode }) {
   return (
-    <button type="submit" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-ink px-7 font-semibold text-white transition-colors duration-[var(--dur-fast)] hover:bg-accent">
+    <button type="submit" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-ink px-7 font-semibold text-white transition-colors duration-[var(--dur-fast)] hover:bg-ink/85">
       {children}
     </button>
   );

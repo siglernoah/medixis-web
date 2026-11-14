@@ -36,12 +36,12 @@ export default function Standards() {
 
       <Chapter id="compliance" eyebrow="Compliance" title="Regulation we work within." tone="mist">
         <div className="mt-14 grid gap-6 md:grid-cols-2">
-          <Reveal className="rounded-[var(--radius-panel)] bg-white p-8 md:p-10">
+          <Reveal className="rounded-[var(--radius-panel)] border border-white/15 p-8 md:p-10">
             <h3 className="text-h3">GDPR</h3>
             <p className="mt-3 text-muted">How we collect, store and process personal data from buyers, suppliers and partners.</p>
             <p className="todo mt-6 inline-block text-small">Compliance status to verify before launch</p>
           </Reveal>
-          <Reveal delay={0.08} className="rounded-[var(--radius-panel)] bg-white p-8 md:p-10">
+          <Reveal delay={0.08} className="rounded-[var(--radius-panel)] border border-white/15 p-8 md:p-10">
             <h3 className="text-h3">EU Medical Device Regulation (MDR)</h3>
             <p className="mt-3 text-muted">The applicable requirements for medical devices we help place with healthcare providers in the EU.</p>
             <p className="todo mt-6 inline-block text-small">Compliance status to verify before launch</p>

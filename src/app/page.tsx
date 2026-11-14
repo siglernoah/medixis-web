@@ -40,10 +40,10 @@ export default function Home() {
       <Process />
 
       {/* 3 — WHY IT'S FREE (transparency): split-screen moment, then the detail on navy */}
-      <section aria-labelledby="free" className="on-dark bg-ink text-on-dark-muted">
+      <section aria-labelledby="free" className="navy on-dark">
         <div className="container-content pt-[var(--spacing-chapter)] pb-16">
           <Reveal>
-            <p className="text-small font-semibold text-turquoise">How we get paid</p>
+            <p className="eyebrow">How we get paid</p>
             <h2 id="free" className="text-h1 mt-4 max-w-[16ch] text-white">Why it&rsquo;s free for clinics.</h2>
           </Reveal>
         </div>
@@ -54,11 +54,11 @@ export default function Home() {
               We&rsquo;d rather you hear it from us: suppliers pay Medixis a commission on completed purchases. We&rsquo;re open about it because it&rsquo;s what makes the service work.
             </p>
           </Reveal>
-          <ol className="mt-16 grid gap-px overflow-hidden rounded-[var(--radius-panel)] bg-white/10 md:grid-cols-3">
+          <ol className="mt-16 grid gap-10 border-t border-white/15 pt-10 md:grid-cols-3">
             {freePoints.map((p, i) => (
-              <Reveal as="li" key={p.title} delay={i * 0.06} className="bg-ink-raised p-8 md:p-10">
-                <span className="text-small font-semibold text-turquoise" aria-hidden="true">0{i + 1}</span>
-                <h3 className="mt-6 text-[1.5rem] leading-tight tracking-[var(--tracking-heading)] text-white">{p.title}</h3>
+              <Reveal as="li" key={p.title} delay={i * 0.06}>
+                <span className="eyebrow" aria-hidden="true">0{i + 1}</span>
+                <h3 className="mt-4 text-[1.5rem] leading-tight tracking-[var(--tracking-heading)] text-white">{p.title}</h3>
                 <p className="mt-3">{p.body}</p>
               </Reveal>
             ))}
@@ -66,7 +66,7 @@ export default function Home() {
           <Reveal className="mt-12 flex flex-wrap items-center gap-3">
             <span className="mr-2 text-small text-white">We compare on</span>
             {fitCriteria.map((c) => (
-              <span key={c} className="rounded-full border border-turquoise/50 px-5 py-2 text-small font-semibold text-turquoise">{c}</span>
+              <span key={c} className="rounded-full border border-white/25 px-5 py-2 text-small font-semibold text-white">{c}</span>
             ))}
           </Reveal>
         </div>
@@ -82,12 +82,12 @@ export default function Home() {
           <ul className="mt-10 border-t border-ink/15">
             {audiences.map((a, i) => (
               <Reveal as="li" key={a.title} delay={i * 0.08} className="group grid gap-4 border-b border-ink/15 py-10 md:grid-cols-[1.4fr_1fr] md:items-end md:gap-12">
-                <p className="text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[0.95] tracking-[var(--tracking-display)] text-ink transition-colors duration-[var(--dur-base)] group-hover:text-accent">{a.title}.</p>
+                <p className="font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.98] tracking-[var(--tracking-display)] text-ink transition-opacity duration-[var(--dur-base)] group-hover:opacity-70">{a.title}.</p>
                 <p className="max-w-md text-muted">{a.body}</p>
               </Reveal>
             ))}
             <Reveal as="li" delay={0.16} className="grid gap-4 border-b border-ink/15 py-10 md:grid-cols-[1.4fr_1fr] md:items-end md:gap-12">
-              <p className="text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[0.95] tracking-[var(--tracking-display)] text-ink/25">
+              <p className="font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.98] tracking-[var(--tracking-display)] text-ink/25">
                 <span className="sr-only">Not </span><span className="line-through decoration-[0.06em]">Public tenders.</span>
               </p>
               <p className="max-w-md text-muted">We don&rsquo;t take part in public tenders or government procurement.</p>
@@ -97,7 +97,7 @@ export default function Home() {
       </section>
 
       {/* 5 — WHAT WE CAN SOURCE: marquee + list */}
-      <section aria-labelledby="source" className="overflow-hidden bg-mist pt-[var(--spacing-chapter)]">
+      <section aria-labelledby="source" className="navy on-dark overflow-hidden pt-[var(--spacing-chapter)]">
         <div className="container-content">
           <Reveal>
             <p className="eyebrow">What we can source</p>
@@ -108,9 +108,9 @@ export default function Home() {
           {[0, 1].map((k) => (
             <div key={k} className="flex shrink-0 items-center">
               {categories.map((c) => (
-                <span key={c.title} className="flex items-center whitespace-nowrap text-[clamp(3rem,7vw,6.5rem)] font-semibold tracking-[var(--tracking-display)]">
-                  <span className="text-outline text-ink/70">{c.title}</span>
-                  <span className="mx-10 inline-block h-4 w-4 rounded-full bg-turquoise" />
+                <span key={c.title} className="flex items-center whitespace-nowrap font-serif text-[clamp(3rem,7vw,6.5rem)] tracking-[var(--tracking-display)]">
+                  <span className="text-outline text-white/45">{c.title}</span>
+                  <span className="mx-10 inline-block h-3 w-3 rounded-full bg-white/30" />
                 </span>
               ))}
             </div>
@@ -141,7 +141,7 @@ export default function Home() {
             <div>
               <Reveal className="lg:sticky lg:top-32">
                 <p className="eyebrow">Vetted suppliers</p>
-                <h2 id="trust" className="text-[clamp(3rem,6vw,5.5rem)] mt-4 font-semibold leading-[0.95] tracking-[var(--tracking-display)]">Not a <span className="text-accent">directory.</span></h2>
+                <h2 id="trust" className="mt-4 text-[clamp(3rem,6vw,5.5rem)] leading-[0.98] tracking-[var(--tracking-display)]">Not a directory.</h2>
                 <p className="mt-6 max-w-md text-muted">
                   We assess suppliers before we put them in front of you, and match them to what your clinic actually needs.
                 </p>
@@ -151,7 +151,7 @@ export default function Home() {
             <ol className="space-y-4">
               {vetting.map((v, i) => (
                 <Reveal as="li" key={v.title} delay={0.04} className="group rounded-[var(--radius-panel)] border border-ink/10 p-8 transition-colors duration-[var(--dur-base)] hover:border-transparent hover:bg-ink md:p-10">
-                  <span className="text-outline text-[4rem] font-semibold leading-none text-accent transition-colors duration-[var(--dur-base)] group-hover:text-turquoise" aria-hidden="true">0{i + 1}</span>
+                  <span className="text-outline font-serif text-[4rem] leading-none text-ink transition-colors duration-[var(--dur-base)] group-hover:text-white" aria-hidden="true">0{i + 1}</span>
                   <h3 className="mt-6 text-[1.5rem] leading-tight tracking-[var(--tracking-heading)] transition-colors duration-[var(--dur-base)] group-hover:text-white">{v.title}</h3>
                   <p className="mt-2 text-muted transition-colors duration-[var(--dur-base)] group-hover:text-on-dark-muted">{v.body}</p>
                 </Reveal>
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* 7 — FAQ */}
-      <section aria-labelledby="faq" className="chapter bg-mist">
+      <section aria-labelledby="faq" className="chapter navy on-dark">
         <div className="container-content grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
           <div>
             <Reveal className="lg:sticky lg:top-32">
@@ -200,17 +200,17 @@ export default function Home() {
       </section>
       */}
 
-      {/* 8 — FINAL CTA: full turquoise */}
-      <section aria-labelledby="cta" className="relative overflow-hidden bg-turquoise py-[var(--spacing-chapter)] text-ink">
+      {/* 8 — FINAL CTA */}
+      <section aria-labelledby="cta" className="relative overflow-hidden py-[var(--spacing-chapter)]">
         <div className="container-content">
           <Reveal>
-            <p className="text-small font-semibold">Free for clinics. Suppliers pay us, not you.</p>
-            <h2 id="cta" className="mt-6 text-[clamp(3.5rem,11vw,10.5rem)] font-semibold leading-[0.9] tracking-[var(--tracking-display)] text-ink">Request<br />quotes.</h2>
+            <p className="eyebrow">Free for clinics. Suppliers pay us, not you.</p>
+            <h2 id="cta" className="mt-6 text-[clamp(3.5rem,11vw,10.5rem)] leading-[0.92] tracking-[var(--tracking-display)] text-ink">Request<br />quotes.</h2>
             <div className="mt-12 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-              <p className="max-w-md text-lead font-medium">Tell us what your clinic needs. There&rsquo;s no obligation, and you make the final choice.</p>
+              <p className="max-w-md text-lead text-body">Tell us what your clinic needs. There&rsquo;s no obligation, and you make the final choice.</p>
               <div className="flex flex-wrap gap-3">
                 <MagneticButton href="/contact/">Request quotes <Arrow /></MagneticButton>
-                <MagneticButton href="/suppliers/" variant="secondary" className="border-ink/30">I&rsquo;m a supplier</MagneticButton>
+                <MagneticButton href="/suppliers/" variant="secondary">I&rsquo;m a supplier</MagneticButton>
               </div>
             </div>
           </Reveal>

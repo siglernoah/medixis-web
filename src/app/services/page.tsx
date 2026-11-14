@@ -31,7 +31,7 @@ export default function Services() {
           <h2 id="handled" className="sr-only">What we handle</h2>
           <ol className="grid gap-4 md:grid-cols-2">
             {handled.map((s, i) => (
-              <Reveal as="li" key={s.title} delay={(i % 2) * 0.08} className="flex min-h-[280px] flex-col justify-between rounded-[var(--radius-panel)] bg-mist p-8 md:p-10">
+              <Reveal as="li" key={s.title} delay={(i % 2) * 0.08} className="flex min-h-[280px] flex-col justify-between rounded-[var(--radius-panel)] border border-ink/10 bg-white p-8 md:p-10">
                 <span className="text-h2 font-semibold text-accent" aria-hidden="true">0{i + 1}</span>
                 <div className="mt-10">
                   <h3 className="text-[1.75rem] leading-tight tracking-[var(--tracking-heading)]">{s.title}</h3>
@@ -80,11 +80,11 @@ export default function Services() {
         <p className="mt-10 text-small text-muted">Timelines depend on product availability and supplier lead times.</p>
       </Chapter>
 
-      <section className="chapter bg-ink text-center on-dark">
+      <section className="chapter text-center">
         <div className="container-content">
-          <h2 className="text-h2 mx-auto max-w-[18ch] text-on-dark">Tell us what your clinic needs.</h2>
+          <h2 className="text-h2 mx-auto max-w-[18ch]">Tell us what your clinic needs.</h2>
           <div className="mt-10 flex justify-center">
-            <MagneticButton href="/contact/" variant="light">Request quotes <Arrow /></MagneticButton>
+            <MagneticButton href="/contact/" >Request quotes <Arrow /></MagneticButton>
           </div>
         </div>
       </section>

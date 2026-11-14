@@ -28,7 +28,7 @@ export default function Contact() {
 
       <section aria-label="Quote request" className="pb-[var(--spacing-chapter)]">
         <div className="container-content grid gap-16 lg:grid-cols-[1.6fr_1fr]">
-          <MailtoForm subject="Quote request" className="rounded-[var(--radius-panel)] bg-mist p-6 md:p-10">
+          <MailtoForm subject="Quote request" className="rounded-[var(--radius-panel)] border border-ink/10 bg-white p-6 md:p-10">
             <fieldset className="grid gap-6 md:grid-cols-2">
               <legend className="sr-only">Your details and request</legend>
               <Input label="Your name" name="Name" required autoComplete="name" />

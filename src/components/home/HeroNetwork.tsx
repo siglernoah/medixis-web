@@ -11,7 +11,7 @@ import { useEffect, useRef } from "react";
  */
 type Props = { progressRef: React.RefObject<number> };
 
-const ACCENT = [0, 166, 188]; // logo turquoise
+const ACCENT = [232, 240, 247]; // near-white once the X forms
 const INK = [190, 205, 222]; // pale blue-grey on navy
 
 function easeInOut(t: number) {

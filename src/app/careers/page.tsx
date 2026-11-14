@@ -27,7 +27,7 @@ export default function Careers() {
       <section aria-label="Opportunities" className="pb-[var(--spacing-chapter)]">
         <ul className="container-content grid gap-6 md:grid-cols-2">
           {roles.map((r, i) => (
-            <Reveal as="li" key={r.title} delay={i * 0.08} className="flex flex-col justify-between gap-10 rounded-[var(--radius-panel)] bg-mist p-8 md:p-12">
+            <Reveal as="li" key={r.title} delay={i * 0.08} className="flex flex-col justify-between gap-10 rounded-[var(--radius-panel)] border border-ink/10 bg-white p-8 md:p-12">
               <div>
                 <h2 className="text-[1.75rem] leading-tight tracking-[var(--tracking-heading)]">{r.title}</h2>
                 <p className="mt-3 text-muted">{r.body}</p>

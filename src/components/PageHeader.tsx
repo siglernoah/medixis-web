@@ -3,7 +3,6 @@ import Reveal from "./Reveal";
 export default function PageHeader({ eyebrow, title, lead }: { eyebrow: string; title: React.ReactNode; lead?: string }) {
   return (
     <header className="on-dark relative mb-[clamp(4rem,8vw,7rem)] overflow-hidden bg-ink">
-      <div aria-hidden="true" className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-turquoise/20 blur-[120px]" />
       <div className="container-content relative pb-20 pt-24 md:pb-28 md:pt-36">
         <Reveal>
           <p className="text-small font-semibold text-turquoise">{eyebrow}</p>
@@ -18,7 +17,7 @@ export default function PageHeader({ eyebrow, title, lead }: { eyebrow: string; 
 export function Chapter({
   id, eyebrow, title, children, tone = "white",
 }: { id: string; eyebrow?: string; title: React.ReactNode; children?: React.ReactNode; tone?: "white" | "mist" | "ink" }) {
-  const bg = tone === "mist" ? "bg-mist" : tone === "ink" ? "on-dark bg-ink text-on-dark-muted" : "";
+  const bg = tone === "white" ? "" : "navy on-dark";
   return (
     <section aria-labelledby={id} className={`chapter ${bg}`}>
       <div className="container-content">

@@ -63,7 +63,7 @@ export default function About() {
         </div>
       </Chapter>
 
-      <section aria-labelledby="growth" className="on-dark chapter bg-ink text-on-dark-muted">
+      <section aria-labelledby="growth" className="navy on-dark chapter">
         <div className="container-content">
           <Reveal>
             <p className="text-small font-semibold text-accent-on-dark">Growing with purpose</p>

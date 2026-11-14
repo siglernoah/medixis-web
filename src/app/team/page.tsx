@@ -35,7 +35,7 @@ export default function Team() {
         </ul>
       </section>
 
-      <section className="chapter bg-mist">
+      <section className="chapter navy on-dark">
         <div className="container-content flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-h2 max-w-[16ch]">Want to work with us?</h2>

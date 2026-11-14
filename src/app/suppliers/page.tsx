@@ -35,7 +35,7 @@ export default function Suppliers() {
       <section aria-label="What suppliers get" className="pb-[var(--spacing-chapter)]">
         <ul className="container-content grid gap-4 md:grid-cols-2">
           {points.map((p, i) => (
-            <Reveal as="li" key={p.title} delay={(i % 2) * 0.08} className="rounded-[var(--radius-panel)] bg-mist p-8 md:p-10">
+            <Reveal as="li" key={p.title} delay={(i % 2) * 0.08} className="rounded-[var(--radius-panel)] border border-ink/10 bg-white p-8 md:p-10">
               <h2 className="text-[1.75rem] leading-tight tracking-[var(--tracking-heading)]">{p.title}</h2>
               <p className="mt-3 max-w-md text-muted">{p.body}</p>
             </Reveal>
@@ -63,7 +63,7 @@ export default function Suppliers() {
             <h2 id="supplier-contact-title" className="text-h2 mt-4">Tell us what you supply.</h2>
             <p className="mt-6 max-w-sm text-muted">We read every message and reply personally.</p>
           </div>
-          <MailtoForm subject="Supplier enquiry" className="rounded-[var(--radius-panel)] bg-mist p-6 md:p-10">
+          <MailtoForm subject="Supplier enquiry" className="rounded-[var(--radius-panel)] border border-ink/10 bg-white p-6 md:p-10">
             <div className="grid gap-6 md:grid-cols-2">
               <Input label="Company name" name="Company" required autoComplete="organization" />
               <Input label="Website" name="Website" autoComplete="url" />

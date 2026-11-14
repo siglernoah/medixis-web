@@ -42,7 +42,7 @@ export default function Partners() {
       <section aria-label="Partner paths" className="pb-[var(--spacing-chapter)]">
         <ul className="container-content grid gap-6 md:grid-cols-2">
           {paths.map((p, i) => (
-            <Reveal as="li" key={p.title} delay={i * 0.08} className={`rounded-[var(--radius-panel)] p-8 md:p-12 ${i ? "on-dark bg-ink text-on-dark-muted" : "bg-mist"}`}>
+            <Reveal as="li" key={p.title} delay={i * 0.08} className={`rounded-[var(--radius-panel)] p-8 md:p-12 ${i ? "navy on-dark" : "border border-ink/10 bg-white"}`}>
               <h2 className={`text-[2rem] leading-tight tracking-[var(--tracking-heading)] ${i ? "text-on-dark" : ""}`}>{p.title}</h2>
               <p className="mt-4 max-w-md">{p.body}</p>
               <a href="#apply" className={`mt-10 inline-flex min-h-11 items-center font-semibold ${i ? "text-accent-on-dark" : "text-accent"}`}>Apply for this path →</a>
@@ -87,14 +87,14 @@ export default function Partners() {
         <p className="mt-6 max-w-2xl text-small text-muted">Illustrative structure — exact rates, deal definitions and payment terms are confirmed in your signed Partner Agreement.</p>
       </Chapter>
 
-      <section id="apply" aria-labelledby="apply-title" className="chapter bg-mist">
+      <section id="apply" aria-labelledby="apply-title" className="chapter navy on-dark">
         <div className="container-content grid gap-12 lg:grid-cols-[1fr_1.6fr]">
           <div>
             <p className="eyebrow">Apply</p>
             <h2 id="apply-title" className="text-h2 mt-4">Start your application.</h2>
             <p className="mt-6 max-w-sm text-muted">We review every application personally and reach out to schedule a short interview, typically within a few days.</p>
           </div>
-          <MailtoForm subject="Partner application" className="rounded-[var(--radius-panel)] bg-white p-6 md:p-10">
+          <MailtoForm subject="Partner application" className="on-light rounded-[var(--radius-panel)] bg-white p-6 text-body md:p-10">
             <div className="grid gap-6 md:grid-cols-2">
               <Select label="Path" name="Path" required options={["Client sourcing", "Supplier sourcing"]} />
               <Select label="Region of focus" name="Region" required options={regions} />
