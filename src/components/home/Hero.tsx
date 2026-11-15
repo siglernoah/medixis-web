@@ -68,9 +68,9 @@ export default function Hero() {
           {!reduce && (
             <motion.div style={{ opacity: outroOpacity, y: outroY }} className="col-start-1 row-start-1 self-center" aria-hidden="true">
               <p className="text-h1 max-w-[18ch] font-display text-white">
-                We do the legwork.
+                We source the options,
                 <br />
-                <span>You make the choice.</span>
+                <span>you call the shots.</span>
               </p>
             </motion.div>
           )}
