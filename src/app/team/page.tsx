@@ -25,7 +25,7 @@ export default function Team() {
             <Reveal as="li" key={p.name} delay={i * 0.06}>
               <div className="aspect-[4/5] overflow-hidden rounded-[var(--radius-media)] bg-mist">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.photo} alt={`Portrait of ${p.name}`} loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
+                <img src={p.photo} alt={`Portrait of ${p.name}`} loading="lazy" decoding="async" className="h-full w-full object-cover grayscale" />
               </div>
               <h2 className="mt-6 text-[1.375rem] leading-tight tracking-[var(--tracking-heading)]">{p.name}</h2>
               <p className="mt-1 font-semibold text-accent">{p.role}</p>

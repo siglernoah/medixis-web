@@ -179,10 +179,10 @@ export const faqs = [
 ];
 
 export const team = [
-  { name: "Jonas Jorgensen", role: "Founder & CEO", email: "contact@medixisgroup.com", photo: asset("/images/jonas-jorgensen.webp") },
-  { name: "Noah Sigler", role: "Chief Operating Officer & Co-Founder", email: "n.sigler@medixisgroup.com", photo: asset("/images/noah-sigler.webp") },
-  { name: "Márk Kovácsevics", role: "European Partner", email: "mark@medixisgroup.com", photo: asset("/images/mark-kovacsevics.webp") },
-  { name: "Istishna Saleem", role: "Client Relations", email: "saleem@medixisgroup.com", photo: asset("/images/istishna-saleem.webp") },
+  { name: "Jonas Jorgensen", role: "Founder & CEO", email: "contact@medixisgroup.com", photo: asset("/images/team/jonas-jorgensen.webp") },
+  { name: "Noah Sigler", role: "Chief Operating Officer & Co-Founder", email: "n.sigler@medixisgroup.com", photo: asset("/images/team/noah-sigler.webp") },
+  { name: "Márk Kovácsevics", role: "European Partner", email: "mark@medixisgroup.com", photo: asset("/images/team/mark-kovacsevics.webp") },
+  { name: "Istishna Saleem", role: "Client Relations", email: "saleem@medixisgroup.com", photo: asset("/images/team/istishna-saleem.webp") },
 ];
 
 // "Who we are": wording from the Medixis LinkedIn post "Why choose Medixis?" (carousel and caption),
