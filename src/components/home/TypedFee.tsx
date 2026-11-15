@@ -7,22 +7,30 @@ const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 /**
  * Types "Your fee = $0", deletes it, types "Nothing.", then an underline sweeps left to right.
- * Runs once, when scrolled into view.
+ * Starts when `play` becomes true; calls `onDone` once the underline has drawn.
  * Screen readers always get "Nothing."; reduced motion shows "Nothing." with no animation.
  * Set in the Apple system font (SF Pro on Apple devices, Helvetica/Arial elsewhere).
  */
-export default function TypedFee() {
+export default function TypedFee({ play, onDone }: { play: boolean; onDone?: () => void }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const [text, setText] = useState(FINAL);
   const [typing, setTyping] = useState(false);
   const [underline, setUnderline] = useState(true);
 
+  const onDoneRef = useRef(onDone);
+  onDoneRef.current = onDone;
+  const reduce = useRef(false);
+
+  // Hide the word as soon as we are hydrated (it stays visible without JS / with reduced motion).
   useEffect(() => {
-    const el = ref.current;
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    reduce.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce.current) { setText(""); setUnderline(false); }
+  }, []);
+
+  useEffect(() => {
+    if (!play) return;
+    if (reduce.current) { onDoneRef.current?.(); return; }
     let cancelled = false;
-    setText("");
-    setUnderline(false);
 
     const run = async () => {
       setTyping(true);
@@ -36,14 +44,12 @@ export default function TypedFee() {
       if (cancelled) return;
       setTyping(false);
       setUnderline(true);
+      await wait(1400); // let the underline sweep finish
+      if (!cancelled) onDoneRef.current?.();
     };
-
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { io.disconnect(); run(); }
-    }, { threshold: 0.6 });
-    io.observe(el);
-    return () => { cancelled = true; io.disconnect(); };
-  }, []);
+    run();
+    return () => { cancelled = true; };
+  }, [play]);
 
   return (
     <p
