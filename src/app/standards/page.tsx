@@ -31,7 +31,6 @@ export default function Standards() {
               </Reveal>
             ))}
           </ol>
-          <p className="todo mt-6 inline-block text-small">Descriptions above are drafts — confirm they match your actual vetting process.</p>
         </div>
       </section>
 

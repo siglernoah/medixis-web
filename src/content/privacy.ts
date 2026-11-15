@@ -1,5 +1,4 @@
 // Medixis Privacy Policy, Version 1.0 — text from "Privacy Policy - Medixis.pdf" (draft dated 15 November 2026).
-// Text in [square brackets] is still to be filled in and is shown on the page as a "to confirm" placeholder.
 
 export type Block =
   | { p: string }
@@ -84,7 +83,7 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
         "(a) suppliers, where a clinic or hospital has requested our Services: we share relevant requirements and contact details with suppliers we have selected, to enable them to provide a quotation. We inform the requesting organisation before doing so. Suppliers act as independent controllers and are contractually required to use such data only for that purpose;",
         "(b) clinics and hospitals, to which we provide supplier contact and product information in the course of the Services;",
         "(c) team members and affiliates working on our behalf in particular markets, each of whom is bound by written confidentiality and data protection obligations;",
-        "(d) service providers supplying IT, hosting, email, customer relationship management, communication and accounting services, acting as processors on our behalf under written agreements: [list];",
+        "(d) service providers supplying IT, hosting, email, customer relationship management, communication and accounting services, acting as processors on our behalf under written agreements;",
         "(e) professional advisers, including lawyers, accountants and auditors, under duties of confidentiality;",
         "(f) public authorities, regulators and courts, where required by law or necessary to protect our rights or the rights of others;",
         "(g) a purchaser or successor, in connection with a merger, acquisition, reorganisation or sale of all or part of our business, subject to appropriate confidentiality undertakings.",
@@ -107,11 +106,11 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
     n: 9, title: "Retention", blocks: [
       { p: "9.1 We retain personal data only for as long as necessary for the purposes for which it was collected, in accordance with the following periods:" },
       { table: { head: ["Category", "Retention period"], rows: [
-        ["Enquiries, procurement data and records of introductions", "[3] years from our last contact with you or your organisation"],
-        ["Supplier data", "[3] years from the end of our relationship with the supplier"],
-        ["Contracts, invoices and commission records", "The period required by applicable tax and accounting law, currently [7] years"],
-        ["Business contact data of individuals who do not respond to our communications", "[12] months from first contact"],
-        ["Technical data collected through the Website", "[14] months from collection"],
+        ["Enquiries, procurement data and records of introductions", "3 years from our last contact with you or your organisation"],
+        ["Supplier data", "3 years from the end of our relationship with the supplier"],
+        ["Contracts, invoices and commission records", "The period required by applicable tax and accounting law, currently 7 years"],
+        ["Business contact data of individuals who do not respond to our communications", "12 months from first contact"],
+        ["Technical data collected through the Website", "14 months from collection"],
       ] } },
       { p: "9.2 At the end of the applicable period, personal data is deleted or anonymised, unless a longer retention period is required by law or necessary to establish, exercise or defend legal claims." },
     ],

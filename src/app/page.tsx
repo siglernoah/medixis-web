@@ -168,15 +168,6 @@ export default function Home() {
             </ol>
           </div>
 
-          {/* PLACEHOLDERS ONLY — replace with real supplier logos (with permission). Never add unconfirmed names or marks. */}
-          <div className="mt-24">
-            <h3 className="text-small font-semibold text-muted">Our suppliers</h3>
-            <ul className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4" aria-label="Placeholders for supplier logos">
-              {["Supplier logo", "Supplier logo", "Supplier logo", "Supplier logo"].map((t, i) => (
-                <li key={i} className="todo flex h-24 items-center justify-center text-center text-small">{t} placeholder</li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 

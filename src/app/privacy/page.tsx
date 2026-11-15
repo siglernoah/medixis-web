@@ -7,8 +7,6 @@ export const metadata: Metadata = {
   title: "Privacy policy",
   description: "How Medixis Group LLC collects, uses, shares and protects personal data, and how to exercise your rights under the GDPR.",
   alternates: { canonical: "/privacy/" },
-  // Kept out of search results until the bracketed placeholders are filled in.
-  robots: { index: false },
 };
 
 /** Shows [bracketed] text as a "still to confirm" placeholder, without the brackets. */
