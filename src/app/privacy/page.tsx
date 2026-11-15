@@ -87,7 +87,7 @@ export default function Privacy() {
           {/* Contents + download */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <p className="text-small text-muted">
-              Medixis Group LLC · Version {privacyMeta.version} · Effective <T text={privacyMeta.effective} />
+              Medixis Group LLC · Version {privacyMeta.version}{privacyMeta.effective && <> · Effective {privacyMeta.effective}</>}
             </p>
             <a
               href={asset("/medixis-privacy-policy.pdf")}

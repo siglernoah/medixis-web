@@ -8,7 +8,7 @@ export type Block =
 
 export const privacyMeta = {
   version: "1.0",
-  effective: "[date]",
+  effective: "",
 };
 
 export const privacySections: { n: number; title: string; blocks: Block[] }[] = [
@@ -24,7 +24,7 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
     n: 2, title: "Who we are", blocks: [
       { p: "2.1 Controller. The controller responsible for your personal data is Medixis Group LLC, a limited liability company registered in the State of Wyoming, United States, under Filing ID 2026-002124541, with its registered office at 30 N Gould St Ste R, Sheridan, WY 82801, USA." },
       { p: "2.2 Contact. Questions about this Privacy Policy or our handling of personal data may be sent to contact@medixisgroup.com." },
-      { p: "2.3 EU representative. As we are established outside the European Union, we have appointed a representative in the Union in accordance with Article 27 GDPR: Jonas Jørgensen, [address], Denmark, jonas@medixisgroup.com. You may contact our EU representative, in addition to or instead of us, on any matter relating to the processing of your personal data." },
+      { p: "2.3 EU representative. As we are established outside the European Union, we have appointed a representative in the Union in accordance with Article 27 GDPR: Jonas Jørgensen, Denmark, jonas@medixisgroup.com. You may contact our EU representative, in addition to or instead of us, on any matter relating to the processing of your personal data." },
       { p: "2.4 Data protection officer. We are not required to appoint a data protection officer and have not done so." },
     ],
   },
@@ -165,7 +165,7 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
       { table: { head: ["Role", "Details"], rows: [
         ["Controller", "Medixis Group LLC, 30 N Gould St Ste R, Sheridan, WY 82801, USA"],
         ["Privacy contact", "contact@medixisgroup.com"],
-        ["EU representative", "Jonas Jørgensen, [address], Denmark, jonas@medixisgroup.com"],
+        ["EU representative", "Jonas Jørgensen, Denmark, jonas@medixisgroup.com"],
       ] } },
     ],
   },
