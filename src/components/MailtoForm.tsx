@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 /**
@@ -32,6 +33,7 @@ export default function MailtoForm({ subject, children, className = "" }: { subj
         {sent
           ? `Your email app should now open with the request filled in. If it doesn't, email us directly at ${site.email}.`
           : "Submitting opens your email app with your request filled in, addressed to the Medixis team."}
+        {" "}See our <Link href="/privacy/" className="underline underline-offset-2 hover:text-ink">privacy policy</Link> for how we handle your details.
       </p>
     </form>
   );
