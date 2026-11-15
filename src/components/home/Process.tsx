@@ -8,11 +8,13 @@ import { steps } from "@/lib/site";
  * Second "wow" moment: on desktop the section pins and the four steps
  * travel horizontally with scroll. Mobile / reduced motion: a calm vertical list.
  */
-// A flat line with two ECG-style beats, drawn in a 1000×60 box.
+// A flat line with three ECG-style beats, one per step, drawn in a 1000×60 box.
+// Each beat's spike peaks 60 units after it starts; peaks sit where steps 1, 2 and 3 slide into place.
 const HB_W = 1000, HB_H = 60;
+const PEAKS = [0.12, 0.5, 0.88];
 const beat = (x: number) =>
   `H${x} l14 -5 l12 5 h14 l7 9 l13 -46 l13 52 l8 -15 h16 l18 -7 l16 7`;
-const HEARTBEAT = `M0 30 ${beat(250)} ${beat(640)} H${HB_W}`;
+const HEARTBEAT = `M0 30 ${PEAKS.map((p) => beat(p * HB_W - 60)).join(" ")} H${HB_W}`;
 
 export default function Process() {
   const section = useRef<HTMLElement>(null);
@@ -25,11 +27,21 @@ export default function Process() {
     const mm = gsap.matchMedia();
     const line = pulse.current!;
     const len = line.getTotalLength();
-    // Draw the heartbeat up to progress p (0..1) and park the dot at its tip.
+    // Scroll progress maps to horizontal position (not path length), so each beat draws exactly
+    // as its step arrives. Lookup table: path length at evenly spaced lengths -> x.
+    const N = 600;
+    const xs = Array.from({ length: N + 1 }, (_, i) => line.getPointAtLength((len * i) / N).x);
+    const lengthAtX = (x: number) => {
+      let lo = 0, hi = N;
+      while (lo < hi) { const mid = (lo + hi) >> 1; if (xs[mid] < x) lo = mid + 1; else hi = mid; }
+      return (len * lo) / N;
+    };
+    // Draw the heartbeat up to scroll progress p (0..1) and park the dot at its tip.
     const draw = (p: number) => {
-      line.style.strokeDashoffset = String(1 - p);
+      const l = p >= 1 ? len : lengthAtX(p * HB_W);
+      line.style.strokeDashoffset = String(1 - l / len);
       const svg = line.ownerSVGElement!;
-      const pt = line.getPointAtLength(len * p);
+      const pt = line.getPointAtLength(l);
       const box = svg.getBoundingClientRect();
       if (dot.current) {
         dot.current.style.transform = `translate(${(pt.x / HB_W) * box.width}px, ${(pt.y / HB_H) * box.height}px)`;
