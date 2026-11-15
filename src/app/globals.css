@@ -22,9 +22,11 @@
   --color-on-dark: #f5f5f7;
   --color-on-dark-muted: #a1a8b3; /* 8:1 on ink */
 
-  /* Type — matches the original medixisgroup.com: Fraunces headings, IBM Plex Sans text */
+  /* Type — display font for headings and bold text, IBM Plex Sans for body text */
   --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-serif: "Fraunces Variable", "Fraunces", "Iowan Old Style", Georgia, serif;
+  /* Display font for every heading, title and bold text: Apple's system font (SF Pro) where available,
+     then Helvetica Neue / Helvetica / Arial. Body text stays IBM Plex Sans. */
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --text-display: clamp(3rem, 8vw, 8rem);
   --text-h1: clamp(2.5rem, 5vw, 5rem);
   --text-h2: clamp(2rem, 3.5vw, 3.5rem);
@@ -68,7 +70,8 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: clip;
 }
-h1, h2, h3, h4 { color: var(--color-ink); font-family: var(--font-serif); font-weight: 560; text-wrap: balance; }
+h1, h2, h3, h4 { color: var(--color-ink); font-family: var(--font-display); font-weight: 600; text-wrap: balance; }
+:where(b, strong, th, summary, .font-semibold, .font-bold, .font-medium) { font-family: var(--font-display); }
 p { text-wrap: pretty; }
 
 :focus-visible {

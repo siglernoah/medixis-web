@@ -57,7 +57,7 @@ export default function About() {
           </div>
           <Reveal className="mx-auto my-16 max-w-3xl border-y border-ink/15 py-12 text-center">
             <p className="eyebrow">{whoWeAre.perspective.eyebrow}</p>
-            <p className="mt-4 font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] text-ink">{whoWeAre.perspective.title}</p>
+            <p className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] text-ink">{whoWeAre.perspective.title}</p>
           </Reveal>
           <div className="mx-auto max-w-2xl space-y-6 text-center">
             {whoWeAre.approach.map((para, i) => (
@@ -75,13 +75,13 @@ export default function About() {
             <p className="eyebrow">Our principles</p>
             <h2 id="values" className="text-h1 mt-4">What we stand for.</h2>
             <p className="mt-8 text-[clamp(1.25rem,1.9vw,1.6rem)] leading-relaxed text-ink">{standFor.intro}</p>
-            <p className="mt-8 font-serif text-[clamp(1.5rem,2.4vw,2.1rem)] italic leading-snug text-ink">{standFor.holdUs}</p>
+            <p className="mt-8 font-display text-[clamp(1.5rem,2.4vw,2.1rem)] italic leading-snug text-ink">{standFor.holdUs}</p>
           </Reveal>
 
           <ol className="mt-20 border-t border-ink/15">
             {standFor.principles.map((pr, i) => (
               <Reveal as="li" key={pr.title} className="grid gap-6 border-b border-ink/15 py-12 md:grid-cols-[7rem_1fr] lg:grid-cols-[8rem_minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12 lg:py-16">
-                <span className="text-outline font-serif text-[clamp(3.5rem,6vw,5.5rem)] leading-none text-white/70" aria-hidden="true">{i + 1}</span>
+                <span className="text-outline font-display text-[clamp(3.5rem,6vw,5.5rem)] leading-none text-white/70" aria-hidden="true">{i + 1}</span>
                 <h3 className="text-[clamp(1.75rem,2.6vw,2.4rem)] leading-tight">
                   <span className="sr-only">{i + 1}. </span>{pr.title}
                 </h3>
@@ -97,7 +97,7 @@ export default function About() {
 
           <Reveal className="mx-auto mt-24 max-w-3xl text-center">
             <p className="eyebrow">{standFor.why.title}</p>
-            <p className="mt-6 font-serif text-[clamp(1.5rem,2.5vw,2.15rem)] leading-[1.35] text-ink">{standFor.why.body}</p>
+            <p className="mt-6 font-display text-[clamp(1.5rem,2.5vw,2.15rem)] leading-[1.35] text-ink">{standFor.why.body}</p>
           </Reveal>
         </div>
       </section>
@@ -117,7 +117,7 @@ export default function About() {
                 { label: "Vision", ...vision },
               ].map((m, i) => (
                 <Reveal key={m.label} delay={i * 0.06} className="border-t border-ink/15 pt-6">
-                  <h3 className="text-small font-semibold text-muted" style={{ fontFamily: "var(--font-sans)" }}>{m.label}</h3>
+                  <h3 className="text-small font-semibold text-muted">{m.label}</h3>
                   <p className="text-lead mt-3 text-ink">{m.statement}</p>
                   <p className="mt-3 text-body">{m.why}</p>
                 </Reveal>

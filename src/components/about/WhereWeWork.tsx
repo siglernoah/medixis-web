@@ -125,7 +125,7 @@ export default function WhereWeWork() {
               {region.text.map((t, i) => <p key={i}>{t}</p>)}
             </div>
             <div className="mt-6 border-t border-white/15 pt-5">
-              <h4 className="text-small font-semibold text-white" style={{ fontFamily: "var(--font-sans)" }}>Sources</h4>
+              <h4 className="text-small font-semibold text-white">Sources</h4>
               <ul className="mt-3 space-y-3 text-small">
                 {region.sources.map((src) => (
                   <li key={src.url}>

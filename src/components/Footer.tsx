@@ -79,9 +79,9 @@ export default function Footer() {
         <div>
           <h2 className="text-small font-semibold text-white">Contact</h2>
           <ul className="mt-4 space-y-3 text-small text-on-dark-muted">
-            <li><a href={`mailto:${site.footerEmail}`} className="hover:text-white">{site.footerEmail}</a></li>
+            <li><a href={`mailto:${site.email}`} className="hover:text-white">{site.email}</a></li>
             <li><a href={`tel:${site.phoneHref}`} className="hover:text-white">{site.phone}</a></li>
-            <li>{site.city}, {site.country}</li>
+            <li>{site.footerCity}, {site.country}</li>
           </ul>
         </div>
       </div>

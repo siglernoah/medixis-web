@@ -52,7 +52,7 @@ export default function Hero() {
               <br />
               <span>Free for clinics.</span>
             </h1>
-            <p className="rise mt-8 font-serif text-[clamp(1.5rem,2.4vw,2rem)] leading-snug text-white" style={{ "--d": "0.3s" } as React.CSSProperties}>
+            <p className="rise mt-8 font-display text-[clamp(1.5rem,2.4vw,2rem)] leading-snug text-white" style={{ "--d": "0.3s" } as React.CSSProperties}>
               Suppliers pay us, not you.
             </p>
             <p className="rise text-lead mt-4 max-w-[34rem] text-on-dark-muted" style={{ "--d": "0.38s" } as React.CSSProperties}>
@@ -67,7 +67,7 @@ export default function Hero() {
           {/* Outro — appears as the network becomes the X */}
           {!reduce && (
             <motion.div style={{ opacity: outroOpacity, y: outroY }} className="col-start-1 row-start-1 self-center" aria-hidden="true">
-              <p className="text-h1 max-w-[18ch] font-serif text-white">
+              <p className="text-h1 max-w-[18ch] font-display text-white">
                 We do the legwork.
                 <br />
                 <span>You make the choice.</span>

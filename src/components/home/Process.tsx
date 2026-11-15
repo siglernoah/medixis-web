@@ -106,7 +106,7 @@ export default function Process() {
             key={s.n}
             className="flex flex-col justify-between rounded-[var(--radius-panel)] border border-ink/10 bg-white p-8 md:p-10 lg:h-[52svh] lg:min-h-[380px] lg:w-[min(36rem,42vw)] lg:shrink-0"
           >
-            <span className="text-outline font-serif text-[clamp(5.5rem,11vw,10rem)] font-normal leading-[0.85] text-ink" aria-hidden="true">{s.n}</span>
+            <span className="text-outline font-display text-[clamp(5.5rem,11vw,10rem)] font-normal leading-[0.85] text-ink" aria-hidden="true">{s.n}</span>
             <div className="mt-10">
               <h3 className="text-[1.75rem] leading-tight tracking-[var(--tracking-heading)]">
                 <span className="sr-only">Step {s.n}: </span>{s.title}

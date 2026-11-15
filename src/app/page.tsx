@@ -91,12 +91,12 @@ export default function Home() {
           <ul className="mt-10 border-t border-ink/15">
             {audiences.map((a, i) => (
               <Reveal as="li" key={a.title} delay={i * 0.08} className="group grid gap-4 border-b border-ink/15 py-10 md:grid-cols-[1.4fr_1fr] md:items-end md:gap-12">
-                <p className="font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.98] tracking-[var(--tracking-display)] text-ink transition-opacity duration-[var(--dur-base)] group-hover:opacity-70">{a.title}.</p>
+                <p className="font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.98] tracking-[var(--tracking-display)] text-ink transition-opacity duration-[var(--dur-base)] group-hover:opacity-70">{a.title}.</p>
                 <p className="max-w-md text-muted">{a.body}</p>
               </Reveal>
             ))}
             <Reveal as="li" delay={0.16} className="grid gap-4 border-b border-ink/15 py-10 md:grid-cols-[1.4fr_1fr] md:items-end md:gap-12">
-              <p className="font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.98] tracking-[var(--tracking-display)] text-ink/25">
+              <p className="font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.98] tracking-[var(--tracking-display)] text-ink/25">
                 <span className="sr-only">Not </span><span className="line-through decoration-[0.06em]">Public tenders.</span>
               </p>
               <p className="max-w-md text-muted">We don&rsquo;t take part in public tenders or government procurement.</p>
@@ -117,7 +117,7 @@ export default function Home() {
           {[0, 1].map((k) => (
             <div key={k} className="flex shrink-0 items-center">
               {categories.map((c) => (
-                <span key={c.title} className="flex items-center whitespace-nowrap font-serif text-[clamp(3rem,7vw,6.5rem)] tracking-[var(--tracking-display)]">
+                <span key={c.title} className="flex items-center whitespace-nowrap font-display text-[clamp(3rem,7vw,6.5rem)] tracking-[var(--tracking-display)]">
                   <span className="text-outline text-white/45">{c.title}</span>
                   <span className="mx-10 inline-block h-3 w-3 rounded-full bg-white/30" />
                 </span>
@@ -160,7 +160,7 @@ export default function Home() {
             <ol className="space-y-4">
               {vetting.map((v, i) => (
                 <Reveal as="li" key={v.title} delay={0.04} className="group rounded-[var(--radius-panel)] border border-ink/10 p-8 transition-colors duration-[var(--dur-base)] hover:border-transparent hover:bg-ink md:p-10">
-                  <span className="text-outline font-serif text-[4rem] leading-none text-ink transition-colors duration-[var(--dur-base)] group-hover:text-white" aria-hidden="true">0{i + 1}</span>
+                  <span className="text-outline font-display text-[4rem] leading-none text-ink transition-colors duration-[var(--dur-base)] group-hover:text-white" aria-hidden="true">0{i + 1}</span>
                   <h3 className="mt-6 text-[1.5rem] leading-tight tracking-[var(--tracking-heading)] transition-colors duration-[var(--dur-base)] group-hover:text-white">{v.title}</h3>
                   <p className="mt-2 text-muted transition-colors duration-[var(--dur-base)] group-hover:text-on-dark-muted">{v.body}</p>
                 </Reveal>

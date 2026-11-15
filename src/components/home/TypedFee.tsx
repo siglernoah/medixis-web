@@ -49,7 +49,7 @@ export default function TypedFee() {
     <p
       ref={ref}
       className="whitespace-nowrap text-[clamp(2.5rem,5vw,5rem)] font-semibold leading-none tracking-[-0.025em]"
-      style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+      style={{ fontFamily: "var(--font-display)" }}
     >
       <span className="sr-only">{FINAL}</span>
       <span aria-hidden="true">
