@@ -78,7 +78,10 @@ export default function Process() {
     return () => mm.revert();
   }, []);
 
+  // GSAP's pin moves <section> into its own "pin-spacer" element. This wrapper div is the node React
+  // owns and removes on navigation, so React never trips over the moved section (removeChild error).
   return (
+    <div>
     <section ref={section} id="how-it-works" aria-labelledby="process-title" className="overflow-hidden bg-white lg:flex lg:h-[calc(100svh-4rem)] lg:flex-col lg:justify-center">
       <div className="container-content pt-[var(--spacing-chapter)] lg:pt-0">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -129,5 +132,6 @@ export default function Process() {
         ))}
       </ol>
     </section>
+    </div>
   );
 }
