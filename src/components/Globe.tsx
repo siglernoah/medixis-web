@@ -28,7 +28,7 @@ const RIM = "110, 155, 215";
 const LABEL_HALO = "6, 14, 28";
 
 const P = {
-  dk: [10.2, 56.16] as LonLat, pl: [21.01, 52.23] as LonLat, lv: [24.11, 56.95] as LonLat,
+  dk: [12.57, 55.68] as LonLat, pl: [21.01, 52.23] as LonLat, lv: [24.11, 56.95] as LonLat,
   ro: [26.1, 44.43] as LonLat, bg: [23.32, 42.7] as LonLat, ma: [-6.83, 34.02] as LonLat, ng: [7.4, 9.08] as LonLat,
 };
 const EE_CENTER: LonLat = [23.6, 49.8];
@@ -483,7 +483,7 @@ export default function Globe({
       <div
         ref={holder}
         role="img"
-        aria-label="Globe showing where Medixis operates: Denmark (headquarters in Aarhus), Eastern Europe (Poland, Romania, Bulgaria and Latvia), Morocco and Nigeria. Use the list of locations to open each region."
+        aria-label="Globe showing where Medixis operates: Denmark (headquarters in Copenhagen), Eastern Europe (Poland, Romania, Bulgaria and Latvia), Morocco and Nigeria. Use the list of locations to open each region."
         className={`relative aspect-square w-full cursor-grab touch-pan-y select-none ${className}`}
       />
       {mounted && createPortal(

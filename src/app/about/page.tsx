@@ -105,9 +105,9 @@ export default function About() {
       {/* MISSION & VISION — photo left, text right, story style */}
       <section aria-labelledby="mission" className="chapter">
         <div className="container-content grid items-start gap-12 md:grid-cols-2 md:gap-16">
-          <Reveal className="aspect-[4/5] overflow-hidden rounded-[var(--radius-panel)] md:sticky md:top-28">
+          <Reveal className="aspect-[4/3] overflow-hidden rounded-[var(--radius-panel)] md:sticky md:top-28">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={asset("/images/team-meeting.webp")} alt="The Medixis team discussing company strategy around a meeting table" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            <img src={asset("/images/team-outreach.webp")} alt="Three members of the Medixis team in a meeting around a conference table, with an outreach strategy plan on the whiteboard" loading="lazy" decoding="async" className="h-full w-full object-cover" />
           </Reveal>
           <div>
             <StoryHead id="mission" eyebrow="Our mission & vision" title="Why we do this, and where we're going." />

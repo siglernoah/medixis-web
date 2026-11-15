@@ -24,7 +24,7 @@ export default function StartRequest() {
       <div className="mt-6 [&>button]:w-full [&>button]:justify-center">
         <SubmitButton>Request quotes</SubmitButton>
       </div>
-      <p className="mt-3 text-small text-muted">No obligation. We reply within 1 working day.</p>
+      <p className="mt-3 text-small text-muted">No obligation. We reply within two working days.</p>
     </MailtoForm>
   );
 }

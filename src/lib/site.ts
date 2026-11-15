@@ -15,8 +15,7 @@ export const site = {
   email: "contact@medixisgroup.com",
   phone: "+45 93 90 36 60",
   phoneHref: "+4593903660",
-  city: "Aarhus",
-  footerCity: "Copenhagen", // location shown in the footer
+  city: "Copenhagen",
   country: "Denmark",
   countryCode: "DK",
   clientLogin: "https://medixisgroup.com/partner-portal",
@@ -89,7 +88,7 @@ export const vision = {
   statement: "To be the trusted procurement partner for healthcare facilities in every market we serve.",
   why: "Growing internationally while staying focused on healthcare professionals and the patients who depend on them.",
 };
-// "What we stand for": Medixis's own wording (Nov 2026). Text in [square brackets] is still to be confirmed.
+// "What we stand for": Medixis's own wording (Nov 2026).
 export const standFor = {
   intro: "Buying medical equipment shouldn’t depend on who you happen to know, or how many weeks you can spend chasing quotes. Medixis exists to give private clinics a fair, honest way to find the right equipment, and to give good suppliers a straight path to the clinics that need them.",
   holdUs: "These are the principles we work by. Hold us to them.",
@@ -97,7 +96,7 @@ export const standFor = {
     {
       title: "Your clinic’s needs come first",
       body: "We don’t start with a catalogue and look for someone to sell it to. We start with what your clinic actually needs: the procedures you run, the space you have, your budget and your timeline. Then we find suppliers who fit.",
-      practice: "Before we contact any supplier, we agree a written brief with you. If the right answer is to buy less, buy refurbished, or wait, we’ll tell you.",
+      practice: "Before we contact any supplier, we agree a written brief with you. If the right answer is to buy less, buy refurbished where local rules allow it, or wait, we’ll tell you.",
     },
     {
       title: "Honesty about how we’re paid",
@@ -107,7 +106,7 @@ export const standFor = {
     {
       title: "Vetted suppliers, not a directory",
       body: "Anyone can put together a list of suppliers. What matters is knowing which ones deliver what they promise. We check suppliers before we introduce them to you.",
-      practice: "We confirm company registration, product certifications ([CE marking/MDR] where required), delivery track record and after-sales support. If a supplier doesn’t meet the standard, they don’t get introduced.",
+      practice: "We confirm company registration, product certifications (CE marking/MDR where required), delivery track record and after-sales support. If a supplier doesn’t meet the standard, they don’t get introduced.",
     },
     {
       title: "Fair to both sides",
@@ -117,7 +116,7 @@ export const standFor = {
     {
       title: "We do what we say",
       body: "In healthcare procurement, trust is the real currency. It’s built slowly and lost quickly. We’d rather promise less and deliver every time.",
-      practice: "One named contact for your request, replies within [one working day], and a straight answer when we can’t help.",
+      practice: "One named contact for your request, replies within 24–48 hours, and a straight answer when we can’t help.",
     },
     {
       title: "Better equipment where it matters most",
@@ -201,7 +200,7 @@ export const whoWeAre = {
     "We bring a business perspective to medical equipment sourcing. That means looking at the purchase in the context of the organisation making it: its plans, budget, timeline and operational needs. We use that understanding to help identify suitable suppliers and bring clarity to the commercial details behind their quotations.",
     "For us, the objective is to help the provider make a well-informed decision about the agreement as a whole: an agreement that works for the patients, people and organisation relying on it.",
     "We are paid by suppliers, through a commission on completed purchases, so the service is free for clinics. We say that plainly because trust depends on it: a sourcing partner is only useful if the clinic can see how it works.",
-    "Medixis is founder-led and works as a distributed team, headquartered in Aarhus, Denmark. Our founders, Jonas Jorgensen and Noah Sigler, are directly involved in the work, so clinics deal with the people accountable for their requests.",
+    "Medixis is founder-led and works as a distributed team, headquartered in Copenhagen, Denmark. Our founders, Jonas Jorgensen and Noah Sigler, are directly involved in the work, so clinics deal with the people accountable for their requests.",
   ],
 };
 
@@ -242,7 +241,7 @@ export const regions: {
   {
     id: "denmark",
     name: "Denmark",
-    detail: "Headquarters, Aarhus",
+    detail: "Headquarters, Copenhagen",
     center: [10.4, 56.1],
     radius: 3.4,
     countryIds: ["208"],
@@ -263,7 +262,7 @@ export const regions: {
     countryIds: ["616", "642", "100", "428"],
     text: [
       "More and more people in the region are paying for private care. Poland’s private healthcare market was close to PLN 90 billion in 2024 and growing by double digits, and demand for private care in Romania has kept rising with a growing, wealthier middle class.",
-      "That means a large pool of private clinics we could sell to, and our Romanian supplier gives us a strong position on the supply side. We started looking at the region in November 2026.",
+      "That means a large pool of private clinics that could benefit from our service. Our focus in the region is Poland, Romania, Bulgaria and Latvia, and we started looking at it in November 2026.",
     ],
     sources: [
       { label: "PZU Group Annual Report 2025 – Polish health care sector", url: "https://annualreport2025.pzu.pl/en/about-pzu-group/environment/polish-health-care-sector-compared-to-europe/", note: "Poland: about PLN 90B private market in 2024, double-digit growth (figures from PMR Market Experts)" },
@@ -279,7 +278,7 @@ export const regions: {
     countryIds: ["504"],
     text: [
       "Morocco has more than 400 private clinics, mostly in the Casablanca-Settat and Rabat-Salé-Kénitra regions, and the private sector is growing alongside government investment in healthcare.",
-      "It’s our closest market to a first deal, and we’re working with a Chinese supplier that has a local distributor. One caveat: importing or selling used or refurbished medical equipment is now illegal there, so the refurbished side of the business won’t work in Morocco. We’ve been looking into Morocco since June 2026.",
+      "We work with suppliers that have local distribution in place. Importing or selling used or refurbished medical equipment is not permitted in Morocco, so we source only new equipment there. We’ve been looking into Morocco since June 2026.",
     ],
     sources: [
       { label: "U.S. ITA – Morocco Country Commercial Guide: Healthcare", url: "https://www.trade.gov/country-commercial-guides/morocco-healthcare", note: "400+ private clinics, Casablanca and Rabat regions" },

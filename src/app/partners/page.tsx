@@ -84,7 +84,7 @@ export default function Partners() {
             </tbody>
           </table>
         </div>
-        <p className="mt-6 max-w-2xl text-small text-muted">Illustrative structure — exact rates, deal definitions and payment terms are confirmed in your signed Partner Agreement.</p>
+        <p className="mt-6 max-w-2xl text-small text-muted">Illustrative structure. Rates, deal definitions and payment terms are discussed with you once you apply, and set out in your signed Partner Agreement.</p>
       </Chapter>
 
       <section id="apply" aria-labelledby="apply-title" className="chapter navy on-dark">

@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  *  2. With Medixis: the clinic has one point of contact.
  * Black outlines, Arial. Horizontal on wide screens, top-to-bottom on phones.
  */
-const PARTIES = ["Manufacturer", "Supplier", "Distributor", "Logistics", "Maintenance"];
+const PARTIES = ["Manufacturer", "Supplier", "Distributor", "Logistics*", "Maintenance*"];
 const FONT = 'Arial, Helvetica, sans-serif';
 
 type Box = { x: number; y: number; w: number; h: number; label: string; strong?: boolean };
@@ -98,6 +98,9 @@ export default function ContactDiagram() {
     <div ref={ref} className="dg mx-auto mt-16 grid max-w-4xl gap-6">
       {block(false, 0, "Without an intermediary", "The clinic contacts and manages every party itself.")}
       {block(true, 1.6, "With Medixis", "One point of contact. We deal with everyone else.")}
+      <p className="text-left text-[0.9rem] text-black/70" style={{ fontFamily: FONT }}>
+        * Logistics and maintenance depend on the supplier and how they prefer to handle them.
+      </p>
     </div>
   );
 }

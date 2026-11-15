@@ -74,8 +74,8 @@ export default function Contact() {
               <p className="mt-2 text-xl font-semibold text-ink">{site.city}, {site.country}</p>
             </div>
             <div className="border-t border-line pt-8">
-              <h2 className="text-small font-semibold text-muted">Existing clients</h2>
-              <a href={site.clientLogin} className="mt-2 inline-block font-semibold text-accent hover:text-accent-strong">Log in to the client portal →</a>
+              <h2 className="text-small font-semibold text-muted">Partners</h2>
+              <a href={site.clientLogin} className="mt-2 inline-block font-semibold text-accent hover:text-accent-strong">Log in to the Partner Portal →</a>
             </div>
           </aside>
         </div>

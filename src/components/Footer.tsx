@@ -81,7 +81,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-3 text-small text-on-dark-muted">
             <li><a href={`mailto:${site.email}`} className="hover:text-white">{site.email}</a></li>
             <li><a href={`tel:${site.phoneHref}`} className="hover:text-white">{site.phone}</a></li>
-            <li>{site.footerCity}, {site.country}</li>
+            <li>{site.city}, {site.country}</li>
           </ul>
         </div>
       </div>
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
         <ul className="flex gap-6">
           <li><Link href="/privacy/" className="hover:text-white">Privacy policy</Link></li>
-          <li><a href={site.clientLogin} className="hover:text-white">Client log in</a></li>
+          <li><a href={site.clientLogin} className="hover:text-white">Partner Portal</a></li>
         </ul>
       </div>
     </footer>

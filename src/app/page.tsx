@@ -35,7 +35,7 @@ const freePoints = [
 const proofPoints = [
   "Suppliers checked for registration and certifications",
   "Side-by-side quote comparison",
-  "One named contact, reply within 1 working day",
+  "One named contact, reply within two working days",
 ];
 
 export default function Home() {
@@ -168,15 +168,12 @@ export default function Home() {
             </ol>
           </div>
 
-          {/* PLACEHOLDERS ONLY — replace with real supplier logos and confirmed certifications. Never add unconfirmed names or marks. */}
+          {/* PLACEHOLDERS ONLY — replace with real supplier logos (with permission). Never add unconfirmed names or marks. */}
           <div className="mt-24">
-            <h3 className="text-small font-semibold text-muted">Suppliers and certifications</h3>
-            <ul className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4" aria-label="Placeholders for supplier logos and certifications">
+            <h3 className="text-small font-semibold text-muted">Our suppliers</h3>
+            <ul className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4" aria-label="Placeholders for supplier logos">
               {["Supplier logo", "Supplier logo", "Supplier logo", "Supplier logo"].map((t, i) => (
                 <li key={i} className="todo flex h-24 items-center justify-center text-center text-small">{t} placeholder</li>
-              ))}
-              {["CE marking placeholder", "ISO certification placeholder"].map((t) => (
-                <li key={t} className="todo col-span-1 flex h-24 items-center justify-center text-center text-small md:col-span-2">{t}</li>
               ))}
             </ul>
           </div>

@@ -23,8 +23,8 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
   {
     n: 2, title: "Who we are", blocks: [
       { p: "2.1 Controller. The controller responsible for your personal data is Medixis Group LLC, a limited liability company registered in the State of Wyoming, United States, under Filing ID 2026-002124541, with its registered office at 30 N Gould St Ste R, Sheridan, WY 82801, USA." },
-      { p: "2.2 Contact. Questions about this Privacy Policy or our handling of personal data may be sent to [privacy@medixisgroup.com]." },
-      { p: "2.3 EU representative. As we are established outside the European Union, we have appointed a representative in the Union in accordance with Article 27 GDPR: [Jonas Jørgensen], [address], Denmark, [email]. You may contact our EU representative, in addition to or instead of us, on any matter relating to the processing of your personal data." },
+      { p: "2.2 Contact. Questions about this Privacy Policy or our handling of personal data may be sent to contact@medixisgroup.com." },
+      { p: "2.3 EU representative. As we are established outside the European Union, we have appointed a representative in the Union in accordance with Article 27 GDPR: Jonas Jørgensen, [address], Denmark, jonas@medixisgroup.com. You may contact our EU representative, in addition to or instead of us, on any matter relating to the processing of your personal data." },
       { p: "2.4 Data protection officer. We are not required to appoint a data protection officer and have not done so." },
     ],
   },
@@ -38,7 +38,7 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
         ["Supplier data", "Product ranges, certifications, regulatory documentation, regions served, distribution arrangements and commercial terms"],
         ["Communications data", "The content of correspondence and records of meetings and calls"],
         ["Transaction and financial data", "Invoicing details, commission records and bank details required to make or receive payments"],
-        ["Technical data", "IP address, browser type, device information, pages visited, referring website and cookie identifiers"],
+        ["Technical data", "IP address, browser type and device information recorded in our hosting provider\u2019s server logs"],
         ["Preference data", "Your preferences regarding communications from us, including any objection you have made"],
       ] } },
       { p: "3.2 We do not intentionally collect special categories of personal data within the meaning of Article 9 GDPR." },
@@ -49,7 +49,7 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
       { p: "4.1 Directly from you, when you complete a form on the Website, correspond with us, speak with us by telephone or in person, or enter into an agreement with us." },
       { p: "4.2 From publicly available sources, including organisation websites, professional networking platforms such as LinkedIn, and public business registers and directories." },
       { p: "4.3 From third parties, including clinics, hospitals, suppliers, partners and affiliates who introduce you to us or with whom we work in providing the Services." },
-      { p: "4.4 Automatically, when you use the Website, through cookies and similar technologies, as described in section 12." },
+      { p: "4.4 Automatically, when you use the Website, through the server logs kept by our hosting provider, as described in section 12." },
     ],
   },
   {
@@ -60,7 +60,7 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
         ["Assessing and onboarding suppliers, including verifying company registration, certifications and regulatory compliance", "Our legitimate interest in ensuring that the suppliers we introduce are reliable and compliant (Art. 6(1)(f)); performance of a contract (Art. 6(1)(b))"],
         ["Managing relationships with clinics, suppliers, partners and affiliates, including agreements, commissions and payments", "Performance of a contract (Art. 6(1)(b)); compliance with a legal obligation (Art. 6(1)(c))"],
         ["Contacting organisations that may benefit from our Services", "Our legitimate interest in developing our business (Art. 6(1)(f)); your consent, where required by applicable electronic marketing laws (Art. 6(1)(a))"],
-        ["Operating, maintaining, securing and improving the Website", "Our legitimate interest in providing a secure and functional website (Art. 6(1)(f)); your consent, for non-essential cookies (Art. 6(1)(a))"],
+        ["Operating, maintaining, securing and improving the Website", "Our legitimate interest in providing a secure and functional website (Art. 6(1)(f))"],
         ["Complying with accounting, tax, record-keeping and other legal obligations", "Compliance with a legal obligation (Art. 6(1)(c))"],
         ["Establishing, exercising or defending legal claims", "Our legitimate interest in protecting our legal rights (Art. 6(1)(f))"],
       ] } },
@@ -93,7 +93,7 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
   },
   {
     n: 8, title: "International transfers", blocks: [
-      { p: "8.1 Medixis is established in the United States, and our team members, partners and suppliers are located in several countries, including countries outside the European Economic Area (“EEA”) such as the United States, Morocco, Ghana and China. Personal data may therefore be transferred to and processed in countries whose laws may not provide the same level of protection as the laws of the EEA." },
+      { p: "8.1 Medixis is established in the United States, and our team members, partners and suppliers are located in several countries, including countries outside the European Economic Area (“EEA”) such as the United States and Morocco. Personal data may therefore be transferred to and processed in countries whose laws may not provide the same level of protection as the laws of the EEA." },
       { p: "8.2 Where personal data is transferred outside the EEA, we ensure that the transfer is subject to an appropriate safeguard, namely:" },
       { list: [
         "(a) an adequacy decision of the European Commission in respect of the destination country, including, for transfers to the United States, the EU-US Data Privacy Framework where the recipient is certified under it;",
@@ -135,13 +135,14 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
         "(g) withdraw your consent at any time, where processing is based on consent (Article 7(3)).",
       ] },
       { p: "11.2 Exercising your rights. You may exercise these rights by contacting us or our EU representative using the details in section 16. We may ask you to verify your identity before responding. We will respond within one month of receipt of your request. This period may be extended by two further months where necessary, taking into account the complexity and number of requests, in which case we will inform you within the first month. We do not charge a fee unless a request is manifestly unfounded or excessive." },
-      { p: "11.3 Complaints. You have the right to lodge a complaint with a supervisory authority, in particular in the EU member state of your habitual residence, place of work or the place of the alleged infringement. In the Netherlands, this is the Autoriteit Persoonsgegevens; in Denmark, Datatilsynet. We would, however, welcome the opportunity to address your concerns before you approach a supervisory authority." },
+      { p: "11.3 Complaints. You have the right to lodge a complaint with a supervisory authority, in particular in the EU member state of your habitual residence, place of work or the place of the alleged infringement. In Denmark, this is Datatilsynet. We would, however, welcome the opportunity to address your concerns before you approach a supervisory authority." },
     ],
   },
   {
     n: 12, title: "Cookies", blocks: [
-      { p: "12.1 The Website uses cookies and similar technologies. Cookies that are strictly necessary for the Website to function are placed automatically. Analytics and other non-essential cookies are placed only with your consent, which you may give or withdraw at any time through the cookie banner on the Website." },
-      { p: "12.2 The non-essential tools currently used on the Website are: [list]. You may also control cookies through your browser settings." },
+      { p: "12.1 The Website does not use cookies, analytics or other tracking technologies, and we do not show a cookie banner because none is needed." },
+      { p: "12.2 The Website stores one small setting in your browser\u2019s session storage so that the homepage introduction plays only once per visit. It is never sent to us and is deleted when you close the browser tab." },
+      { p: "12.3 Like any web host, our hosting provider keeps server logs, including IP addresses, to deliver and secure the Website." },
     ],
   },
   {
@@ -163,8 +164,8 @@ export const privacySections: { n: number; title: string; blocks: Block[] }[] = 
     n: 16, title: "Contact details", blocks: [
       { table: { head: ["Role", "Details"], rows: [
         ["Controller", "Medixis Group LLC, 30 N Gould St Ste R, Sheridan, WY 82801, USA"],
-        ["Privacy contact", "[privacy@medixisgroup.com]"],
-        ["EU representative", "[Jonas Jørgensen], [address], Denmark, [email]"],
+        ["Privacy contact", "contact@medixisgroup.com"],
+        ["EU representative", "Jonas Jørgensen, [address], Denmark, jonas@medixisgroup.com"],
       ] } },
     ],
   },

@@ -54,7 +54,7 @@ export default function Nav() {
 
         <div className="hidden items-center gap-6 lg:flex">
           <a href={site.clientLogin} className="text-[0.9375rem] text-on-dark-muted hover:text-white">
-            Client log in
+            Partner Portal
           </a>
           <Link
             ref={ctaRef}
@@ -94,7 +94,7 @@ export default function Nav() {
               Request quotes
             </Link>
             <a href={site.clientLogin} className="rounded-full border border-white/25 px-5 py-3 text-white">
-              Client log in
+              Partner Portal
             </a>
           </li>
         </ul>

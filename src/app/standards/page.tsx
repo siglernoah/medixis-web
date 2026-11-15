@@ -39,19 +39,16 @@ export default function Standards() {
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           <Reveal className="rounded-[var(--radius-panel)] border border-white/15 p-8 md:p-10">
             <h3 className="text-h3">GDPR</h3>
-            <p className="mt-3 text-muted">How we collect, store and process personal data from buyers, suppliers and partners.</p>
-            <p className="todo mt-6 inline-block text-small">Compliance status to verify before launch</p>
+            <p className="mt-3 text-muted">How we collect, store and process personal data from buyers, suppliers and partners. Our GDPR documentation is being finalised; our <Link href="/privacy/" className="text-accent underline underline-offset-4">privacy policy</Link> sets out how we handle personal data today.</p>
           </Reveal>
           <Reveal delay={0.08} className="rounded-[var(--radius-panel)] border border-white/15 p-8 md:p-10">
             <h3 className="text-h3">EU Medical Device Regulation (MDR)</h3>
-            <p className="mt-3 text-muted">The applicable requirements for medical devices we help place with healthcare providers in the EU.</p>
-            <p className="todo mt-6 inline-block text-small">Compliance status to verify before launch</p>
+            <p className="mt-3 text-muted">The applicable requirements for medical devices we help place with healthcare providers in the EU. All suppliers we work with comply with the EU MDR.</p>
           </Reveal>
         </div>
         <p className="mt-10 max-w-2xl text-muted">
           Medixis does not currently hold formal certifications. Where suppliers hold certifications relevant to your order, we include them with your quote.
         </p>
-        <p className="todo mt-3 inline-block text-small">Confirm the sentence above (especially whether supplier certifications are passed on with quotes).</p>
       </Chapter>
 
       <Chapter id="data" eyebrow="Data" title="Your information stays yours.">
